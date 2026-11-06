@@ -85,19 +85,13 @@ For each annotated pair, observed nucleotide combinations were counted. AU, UA, 
 
 The figures address different questions and provide complementary context. R2R is used to draw consensus diagrams (Weinberg & Breaker, 2011); R-scape assesses covariation beyond a phylogenetic null expectation (Rivas et al., 2017, 2020); FR3D annotates geometric interactions in RNA structures (Sarver et al., 2008); and RNAalifold/ViennaRNA provides comparative-folding predictions (Bernhart et al., 2008; Lorenz et al., 2011). The 9ZTL panels show selected regions of one deposited ribosome structure (Masse et al., 2024; RCSB Protein Data Bank, 2026). Each caption states what the panel shows and what it cannot establish.
 
-![R2R consensus secondary-structure diagram for the Rfam 5S rRNA seed (RF00001). The diagram displays the family consensus, not an experimentally solved three-dimensional structure.](figures/5s_rrna_consensus.svg)
 
-![R2R consensus secondary-structure diagram for the Rfam tRNA seed (RF00005), showing the acceptor, D, anticodon and TΨC regions. It represents a family consensus, not every individual tRNA molecule.](figures/trna_consensus.svg)
 
 ![Observed base-pair composition among annotated paired positions. Pair composition does not demonstrate that compensatory substitutions occurred.](figures/base_pair_composition.svg)
 
-![R-scape covariation candidates compared with FR3D geometric annotations in one deposited 9ZTL ribosome structure. The absence of a direct annotation is not proof that a pair never forms.](figures/rscape_fr3d_evidence.svg)
 
-![Comparison of the Rfam consensus annotation with RNAalifold comparative-folding predictions. Predictions are not independent experimental validation.](figures/viennarna_consensus_comparison.svg)
 
-![Selected 5S rRNA interaction endpoints in the deposited 9ZTL ribosome structure. Colored sticks mark FR3D interaction endpoints; they do not draw or prove hydrogen bonds.](../results/figures/9ztl_5s_rRNA_structural_context.png)
 
-![Selected P-site tRNA interaction endpoints in the deposited 9ZTL ribosome structure. This is one ribosomal context, not a universal tRNA structural template.](../results/figures/9ztl_tRNA_structural_context.png)
 
 \FloatBarrier
 
