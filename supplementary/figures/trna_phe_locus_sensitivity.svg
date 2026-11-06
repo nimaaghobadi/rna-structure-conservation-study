@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="1120" viewBox="0 0 1320 1120" role="img" aria-labelledby="title desc">
+<title id="title">Mitochondrial tRNA-Phe(GAA) locus context and paired/unpaired sensitivity</title>
+<desc id="desc">Schematic conserved mitochondrial gene neighborhood in 16 vertebrate mitogenomes, followed by paired-minus-unpaired conservation and entropy differences for 5S rRNA, broad tRNA, the restricted tRNA-Phe locus, coverage thresholds, and one-Bovidae representative sensitivity.</desc>
+<style>
+  text { font-family: Arial, Helvetica, sans-serif; fill: #202733; }
+  .main-title { font-size: 25px; font-weight: 700; }
+  .subtitle { font-size: 14px; fill: #4b5563; }
+  .panel-title { font-size: 18px; font-weight: 700; }
+  .gene-title { font-size: 16px; font-weight: 700; }
+  .gene-sub { font-size: 12px; }
+  .evidence { font-size: 13px; font-weight: 600; }
+  .row-label { font-size: 13px; }
+  .value-label { font-size: 12px; font-weight: 700; }
+  .tick { font-size: 11px; fill: #4b5563; }
+  .axis-label { font-size: 12px; fill: #4b5563; }
+  .axis { stroke: #9ca3af; stroke-width: 1; }
+  .zero { stroke: #111827; stroke-width: 1.6; stroke-dasharray: 5 4; }
+  .note { font-size: 12px; fill: #4b5563; }
+  .gene { stroke: #334155; stroke-width: 1.2; rx: 8; }
+</style>
+<rect width="1320" height="1050" fill="#ffffff"/>
+<text x="48" y="48" class="main-title">One validated mitochondrial tRNA-Phe(GAA) locus</text>
+<text x="48" y="74" class="subtitle">Genomic context and the sensitivity of paired-versus-unpaired conservation estimates</text>
+
+<text x="48" y="116" class="panel-title">A. Conserved local gene neighborhood</text>
+<text x="1270" y="116" text-anchor="end" class="note">Observed in 16/16 complete mitogenomes · schematic, not to scale</text>
+<line x1="130" y1="188" x2="1190" y2="188" stroke="#64748b" stroke-width="2"/>
+<rect x="105" y="145" width="220" height="86" class="gene" fill="#d9f0e3"/>
+<text x="215" y="178" text-anchor="middle" class="gene-title">tRNA-Phe</text>
+<text x="215" y="199" text-anchor="middle" class="gene-sub">anticodon GAA</text>
+<path d="M330 188 L365 188 M355 180 L365 188 L355 196" stroke="#64748b" stroke-width="2" fill="none"/>
+<rect x="370" y="145" width="220" height="86" class="gene" fill="#dbeafe"/>
+<text x="480" y="178" text-anchor="middle" class="gene-title">12S rRNA</text>
+<text x="480" y="199" text-anchor="middle" class="gene-sub">mitochondrial small subunit rRNA</text>
+<path d="M595 188 L630 188 M620 180 L630 188 L620 196" stroke="#64748b" stroke-width="2" fill="none"/>
+<rect x="635" y="145" width="220" height="86" class="gene" fill="#d9f0e3"/>
+<text x="745" y="178" text-anchor="middle" class="gene-title">tRNA-Val</text>
+<text x="745" y="199" text-anchor="middle" class="gene-sub">adjacent tRNA gene</text>
+<path d="M860 188 L895 188 M885 180 L895 188 L885 196" stroke="#64748b" stroke-width="2" fill="none"/>
+<rect x="900" y="145" width="220" height="86" class="gene" fill="#dbeafe"/>
+<text x="1010" y="178" text-anchor="middle" class="gene-title">16S rRNA</text>
+<text x="1010" y="199" text-anchor="middle" class="gene-sub">mitochondrial large subunit rRNA</text>
+
+<rect x="48" y="250" width="290" height="58" rx="7" fill="#f8fafc" stroke="#cbd5e1"/>
+<text x="193" y="274" text-anchor="middle" class="evidence">16/16 genomes</text>
+<text x="193" y="293" text-anchor="middle" class="note">exactly one tRNA-Phe feature</text>
+<rect x="355" y="250" width="290" height="58" rx="7" fill="#f8fafc" stroke="#cbd5e1"/>
+<text x="500" y="274" text-anchor="middle" class="evidence">22 tRNA features</text>
+<text x="500" y="293" text-anchor="middle" class="note">in every complete mitogenome</text>
+<rect x="662" y="250" width="290" height="58" rx="7" fill="#f8fafc" stroke="#cbd5e1"/>
+<text x="807" y="274" text-anchor="middle" class="evidence">GAA mapped in 16/16</text>
+<text x="807" y="293" text-anchor="middle" class="note">Rfam model 33–35 / Stockholm 44–46</text>
+<rect x="969" y="250" width="303" height="58" rx="7" fill="#f8fafc" stroke="#cbd5e1"/>
+<text x="1120" y="274" text-anchor="middle" class="evidence">324/336 valid pair observations</text>
+<text x="1120" y="293" text-anchor="middle" class="note">94.1% canonical or wobble</text>
+
+<text x="48" y="356" class="panel-title">B. Paired-minus-unpaired mean conservation</text>
+<text x="1270" y="356" text-anchor="end" class="note">Positive values: paired columns have higher mean conservation</text>
+<line x1="330" y1="396" x2="1050" y2="396" class="axis"/>
+<line x1="895.7" y1="412" x2="895.7" y2="632" class="zero"/>
+<text x="314" y="435.0" text-anchor="end" class="row-label">5S rRNA (n=712)</text>
+<circle cx="713.0" cy="430" r="6.5" fill="#2563a6" stroke="#ffffff" stroke-width="1.5"/>
+<text x="722.0" y="435.0" text-anchor="start" class="value-label">-0.071</text>
+<text x="314" y="465.0" text-anchor="end" class="row-label">RF00005 tRNA (n=954)</text>
+<circle cx="398.4" cy="460" r="6.5" fill="#2563a6" stroke="#ffffff" stroke-width="1.5"/>
+<text x="407.4" y="465.0" text-anchor="start" class="value-label">-0.193</text>
+<text x="314" y="495.0" text-anchor="end" class="row-label">tRNA-Phe, all 16 taxa</text>
+<circle cx="989.2" cy="490" r="6.5" fill="#2563a6" stroke="#ffffff" stroke-width="1.5"/>
+<text x="998.2" y="495.0" text-anchor="start" class="value-label">+0.036</text>
+<text x="314" y="525.0" text-anchor="end" class="row-label">tRNA-Phe, coverage ≥50%</text>
+<circle cx="984.9" cy="520" r="6.5" fill="#2563a6" stroke="#ffffff" stroke-width="1.5"/>
+<text x="993.9" y="525.0" text-anchor="start" class="value-label">+0.035</text>
+<text x="314" y="555.0" text-anchor="end" class="row-label">tRNA-Phe, coverage ≥70%</text>
+<circle cx="950.5" cy="550" r="6.5" fill="#2563a6" stroke="#ffffff" stroke-width="1.5"/>
+<text x="959.5" y="555.0" text-anchor="start" class="value-label">+0.021</text>
+<text x="314" y="585.0" text-anchor="end" class="row-label">tRNA-Phe, coverage ≥90%</text>
+<circle cx="881.0" cy="580" r="6.5" fill="#2563a6" stroke="#ffffff" stroke-width="1.5"/>
+<text x="872.0" y="585.0" text-anchor="end" class="value-label">-0.006</text>
+<text x="314" y="615.0" text-anchor="end" class="row-label">One-Bovidae sensitivity (range)</text>
+<line x1="855.5" y1="610" x2="904.1" y2="610" stroke="#2563a6" stroke-width="5" stroke-linecap="round"/>
+<line x1="855.5" y1="603" x2="855.5" y2="617" stroke="#2563a6" stroke-width="2"/>
+<line x1="904.1" y1="603" x2="904.1" y2="617" stroke="#2563a6" stroke-width="2"/>
+<text x="913.1" y="615.0" class="value-label">-0.016 to +0.003</text>
+<line x1="330.0" y1="633" x2="330.0" y2="638" class="axis"/>
+<text x="330.0" y="657" text-anchor="middle" class="tick">-0.22</text>
+<line x1="690.0" y1="633" x2="690.0" y2="638" class="axis"/>
+<text x="690.0" y="657" text-anchor="middle" class="tick">-0.08</text>
+<line x1="895.7" y1="633" x2="895.7" y2="638" class="axis"/>
+<text x="895.7" y="657" text-anchor="middle" class="tick">+0.00</text>
+<line x1="1050.0" y1="633" x2="1050.0" y2="638" class="axis"/>
+<text x="1050.0" y="657" text-anchor="middle" class="tick">+0.06</text>
+<text x="690.0" y="682" text-anchor="middle" class="axis-label">Δ = paired − unpaired</text>
+<text x="48" y="720" class="panel-title">C. Paired-minus-unpaired mean entropy</text>
+<text x="1270" y="720" text-anchor="end" class="note">Positive values: paired columns have higher mean entropy</text>
+<line x1="330" y1="738" x2="1050" y2="738" class="axis"/>
+<line x1="459.0" y1="754" x2="459.0" y2="974" class="zero"/>
+<text x="314" y="777.0" text-anchor="end" class="row-label">5S rRNA (n=712)</text>
+<circle cx="639.6" cy="772" r="6.5" fill="#c46b25" stroke="#ffffff" stroke-width="1.5"/>
+<text x="648.6" y="777.0" text-anchor="start" class="value-label">+0.168</text>
+<text x="314" y="807.0" text-anchor="end" class="row-label">RF00005 tRNA (n=954)</text>
+<circle cx="983.8" cy="802" r="6.5" fill="#c46b25" stroke="#ffffff" stroke-width="1.5"/>
+<text x="992.8" y="807.0" text-anchor="start" class="value-label">+0.488</text>
+<text x="314" y="837.0" text-anchor="end" class="row-label">tRNA-Phe, all 16 taxa</text>
+<circle cx="356.8" cy="832" r="6.5" fill="#c46b25" stroke="#ffffff" stroke-width="1.5"/>
+<text x="365.8" y="837.0" text-anchor="start" class="value-label">-0.095</text>
+<text x="314" y="867.0" text-anchor="end" class="row-label">tRNA-Phe, coverage ≥50%</text>
+<circle cx="356.0" cy="862" r="6.5" fill="#c46b25" stroke="#ffffff" stroke-width="1.5"/>
+<text x="365.0" y="867.0" text-anchor="start" class="value-label">-0.096</text>
+<text x="314" y="897.0" text-anchor="end" class="row-label">tRNA-Phe, coverage ≥70%</text>
+<circle cx="385.2" cy="892" r="6.5" fill="#c46b25" stroke="#ffffff" stroke-width="1.5"/>
+<text x="394.2" y="897.0" text-anchor="start" class="value-label">-0.069</text>
+<text x="314" y="927.0" text-anchor="end" class="row-label">tRNA-Phe, coverage ≥90%</text>
+<circle cx="476.1" cy="922" r="6.5" fill="#c46b25" stroke="#ffffff" stroke-width="1.5"/>
+<text x="485.1" y="927.0" text-anchor="start" class="value-label">+0.016</text>
+<text x="314" y="957.0" text-anchor="end" class="row-label">One-Bovidae sensitivity (range)</text>
+<line x1="416.6" y1="952" x2="520.1" y2="952" stroke="#c46b25" stroke-width="5" stroke-linecap="round"/>
+<line x1="416.6" y1="945" x2="416.6" y2="959" stroke="#c46b25" stroke-width="2"/>
+<line x1="520.1" y1="945" x2="520.1" y2="959" stroke="#c46b25" stroke-width="2"/>
+<text x="529.1" y="957.0" class="value-label">-0.039 to +0.057</text>
+<line x1="330.0" y1="975" x2="330.0" y2="980" class="axis"/>
+<text x="330.0" y="999" text-anchor="middle" class="tick">-0.12</text>
+<line x1="459.0" y1="975" x2="459.0" y2="980" class="axis"/>
+<text x="459.0" y="999" text-anchor="middle" class="tick">+0.00</text>
+<line x1="690.0" y1="975" x2="690.0" y2="980" class="axis"/>
+<text x="690.0" y="999" text-anchor="middle" class="tick">+0.21</text>
+<line x1="1050.0" y1="975" x2="1050.0" y2="980" class="axis"/>
+<text x="1050.0" y="999" text-anchor="middle" class="tick">+0.55</text>
+<text x="690.0" y="1024" text-anchor="middle" class="axis-label">Δ = paired − unpaired</text>
+
+<text x="48" y="1080" class="note">Δ = paired − unpaired. Descriptive means only; no p-values or phylogenetic weighting. Nine of the 16 locus taxa are Bovidae.</text>
+<text x="48" y="1100" class="note">One-Bovidae range: nine possible representatives, each combined with all seven non-Bovidae taxa; this is not a phylogenetic correction.</text>
+</svg>
