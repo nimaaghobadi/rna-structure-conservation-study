@@ -29,7 +29,7 @@ The downloader retrieves the Rfam seed alignments. The analysis writes generated
 
 ## Public result tables
 
-The curated summaries used in the report are committed under `data/tables/`. The restricted mitochondrial tRNA-Phe(GAA) locus metrics are under `supplementary/tables/`. The corresponding main and supplementary figures are SVG files under `manuscript/figures/` and `supplementary/figures/`.
+The curated summaries used in the report are committed under `data/tables/`. The restricted mitochondrial tRNA-Phe(GAA) locus metrics are under `supplementary/tables/`. The corresponding main and supplementary figures are SVG files under `figures/` and `supplementary/figures/`.
 
 ## Figure-generation boundaries
 
