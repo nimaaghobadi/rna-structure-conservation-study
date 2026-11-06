@@ -11,8 +11,10 @@ Raw Stockholm alignments are not duplicated here. The paired-versus-unpaired res
 ## Curated result tables
 
 - `tables/qc_summary.csv`: alignment and annotation quality-control counts.
+- `tables/per_column_metrics.csv`: per-column conservation, entropy, valid-base fractions, and counts.
+- `tables/base_pair_metrics.csv`: per-consensus-pair counts and valid denominators.
 - `tables/conservation_by_structure.csv`: per-family paired/unpaired conservation summaries.
 - `tables/entropy_by_structure.csv`: per-family paired/unpaired entropy summaries (bits).
 - `tables/base_pair_summary.csv`: valid denominators and observed canonical/wobble pair composition.
 
-These are the exact summary tables used for the main descriptive results. The restricted mitochondrial tRNA-Phe(GAA) subset metrics are in `../supplementary/tables/`.
+These are the exact summary tables used for the main descriptive results. The restricted mitochondrial tRNA-Phe(GAA) subset metrics and the FR3D evidence summary are in `../supplementary/tables/`.
