@@ -1,36 +1,32 @@
-# Sequence Conservation and Structural Constraints in tRNA and 5S rRNA
+# RNA Structure Conservation: Public Research Resources
 
-A descriptive RNA biology study comparing paired and explicitly unpaired consensus positions in two public Rfam 15.1 seed alignments: 5S ribosomal RNA (RF00001) and transfer RNA (RF00005).
+This repository contains the reader-facing resources needed to inspect and reuse selected outputs from a descriptive RNA biology study of Rfam 15.1 seed alignments RF00001 (5S rRNA) and RF00005 (tRNA).
 
-## Research snapshot
+**The research manuscript is intentionally not included.** It will be prepared separately in the required format for the selected preprint or publication venue after the scientific and editorial review is complete.
 
-The analysis summarizes single-site nucleotide conservation, Shannon entropy, and observed canonical/wobble base-pair composition. In the selected seed alignments, paired columns have lower mean single-site conservation and higher mean entropy than explicitly unpaired columns. The contrasts are descriptive; they are not inferential tests across RNA families or independent evolutionary events.
+## What is here
 
-The work does **not** establish compensatory evolution, causation, a universal family-wide rule, or a new statistical method. A separate 16-species vertebrate mitochondrial tRNA-Phe(GAA) follow-up is restricted to that locus and is sensitive to taxon composition and coverage.
+- `figures/`: selected consensus, base-pair composition, covariation/structure-context, and comparative-folding figures.
+- `data/tables/`: curated quality-control, per-column, conservation, entropy, and base-pair result tables.
+- `supplementary/`: restricted mitochondrial tRNA-Phe(GAA) locus methods, figures, and machine-readable supporting tables.
+- `src/`: core Rfam download, Stockholm parsing, and descriptive-analysis code.
+- `scripts/`: selected figure-generation scripts.
+- `tests/`: focused tests for the core metrics and Stockholm parsing.
+- `REPRODUCIBILITY.md`: execution instructions, dependencies, and explicit boundaries of what the public pipeline does and does not regenerate.
+- `data/README.md`: Rfam source details, release, retrieval date, checksums, and descriptions of the public tables.
 
-## Read the study
+## Scientific scope
 
-- [Main research report](manuscript/manuscript.md)
-- [Data provenance and checksums](data/README.md)
-- [Supplementary locus-audit methods](supplementary/supplementary_methods.md)
-- [Reproduction instructions and software scope](REPRODUCIBILITY.md)
+The paired-versus-unpaired summaries are descriptive for the selected seed alignments. They are not phylogenetically corrected tests across RNA families or independent evolutionary events. The analyses do not establish compensatory evolution, causation, a universal family-wide rule, or a novel statistical method. The 16-taxon mitochondrial tRNA-Phe(GAA) follow-up applies to that restricted locus only, not to the full RF00005 family.
 
-## Repository contents
+The TN93 inferential workflow is not part of the public results because its convergence acceptance gate was not met.
 
-- `manuscript/`: reader-facing report and selected main figures.
-- `supplementary/`: restricted-locus follow-up figure and supporting methods.
-- `data/tables/`: curated machine-readable QC, conservation, entropy, and base-pair summary tables.
-- `src/`, `scripts/`, `tests/`: core analysis code, figure-generation scripts, and focused tests.
-- `supplementary/tables/`: restricted tRNA-Phe(GAA) locus-level metrics.
+## Data and reuse
 
-This is a curated reader-facing research snapshot with the core descriptive-analysis source, focused tests, selected figure scripts, and result tables. Raw Rfam seed alignments are not duplicated; the source, release, retrieval date, and checksums are documented in the data guide. The full structural-annotation and deposited-structure workflows are not all automated by the core pipeline; see the reproduction guide for exact boundaries.
+Raw Rfam seed alignments are not duplicated here; use the official Rfam sources and verify against the checksums in the data guide. The MIT license applies to software source files under `src/`, `scripts/`, and `tests/` only. It does not license manuscript text, figures, Rfam data, PDB/mmCIF data, or third-party resources; see the scope statement in [LICENSE](LICENSE).
 
-## Author and citation
+## Author and contact
 
 Nima Ghobadi · [ORCID: 0009-0009-6146-3045](https://orcid.org/0009-0009-6146-3045)
 
-Please cite the manuscript and Rfam 15.1 source data when using the results or alignments. A formal publication DOI will be added only after a release has been reviewed and approved.
-
-## Scope and contact
-
-This is an independent research project in RNA Biology and RNA Bioinformatics. Questions, corrections, and reproducibility issues can be raised through [GitHub Issues](https://github.com/nimaaghobadi/rna-structure-conservation-study/issues).
+Corrections and reproducibility issues can be raised through [GitHub Issues](https://github.com/nimaaghobadi/rna-structure-conservation-study/issues).
