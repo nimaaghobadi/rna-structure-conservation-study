@@ -87,7 +87,17 @@ The figures address different questions and provide complementary context. R2R i
 
 
 
+![R2R consensus secondary-structure diagram for the Rfam 5S rRNA seed (RF00001). This is a family consensus, not an experimentally solved three-dimensional structure.](figures/5s_rrna_consensus.svg)
+
+![R2R consensus secondary-structure diagram for the Rfam tRNA seed (RF00005). This is a family consensus, not every individual tRNA molecule.](figures/trna_consensus.svg)
+
 ![Observed base-pair composition among annotated paired positions. Pair composition does not demonstrate that compensatory substitutions occurred.](figures/base_pair_composition.svg)
+
+![R-scape covariation candidates compared with FR3D geometric annotations in one deposited 9ZTL ribosome structure.](figures/rscape_fr3d_evidence.svg)
+
+![Comparison of the Rfam consensus annotation with RNAalifold comparative-folding predictions.](figures/viennarna_consensus_comparison.svg)
+
+The deposited 9ZTL structural context can be inspected at the [RCSB Protein Data Bank entry](https://www.rcsb.org/structure/9ZTL); this repository does not redistribute the rendered structural PNGs.
 
 
 
@@ -134,7 +144,7 @@ A descriptive analysis of this restricted subset found mean conservation of 0.83
 
 The main paired-versus-unpaired comparison above still uses the broad Rfam seed; the 16-taxon subset is a separate follow-up. See the [locus audit](../supplementary/supplementary_methods.md), machine-readable acceptance record, and subset analysis summary.
 
-![Gene-neighborhood and sampling-sensitivity summary for the restricted 16-species mitochondrial tRNA-Phe(GAA) subset. It is not a family-wide or phylogeny-corrected result.](../supplementary/supplementary_figures/trna_phe_locus_sensitivity.svg)
+![Gene-neighborhood and sampling-sensitivity summary for the restricted 16-species mitochondrial tRNA-Phe(GAA) subset. It is not a family-wide or phylogeny-corrected result.](../supplementary/figures/trna_phe_locus_sensitivity.svg)
 
 \FloatBarrier
 
