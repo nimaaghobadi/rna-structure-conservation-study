@@ -1,0 +1,5 @@
+# Supplementary methods: restricted mitochondrial tRNA-Phe(GAA) locus
+
+A targeted follow-up selected 16 vertebrate mitochondrial tRNA-Phe(GAA) candidates and checked each against a complete mitochondrial genome. For all 16 candidates, the ungapped GenBank tRNA-Phe feature sequence matches the corresponding Stockholm sequence; mapped Rfam model positions 33–35 (Stockholm columns 44–46) contain GAA; each genome contains 22 annotated tRNA features and exactly one tRNA-Phe feature; and the local order is tRNA-Phe → 12S rRNA → tRNA-Val → 16S rRNA.
+
+This validates a restricted locus set only. It does not establish orthology across the full RF00005 seed. The paired-minus-unpaired conservation contrast is sensitive to minimum valid-column coverage and taxon composition. The analysis is descriptive and is not phylogenetically corrected.
