@@ -1,0 +1,3 @@
+n_sequences,alignment_length,ss_cons_length,rf_annotation_present,accession,family,raw_file,gap_count_total,gap_fraction_total,ambiguous_count_total,ambiguous_fraction_total,n_paired_columns,n_unpaired_columns,n_insertion_columns,n_unknown_structure_columns,n_coordinate_overlap_sequences,n_sequences_after_overlap_filter
+712,230,230,True,RF00001,5S rRNA,data/raw/rf00001_seed.sto,80736,0.4930141670737665,30,0.00018319491939423546,68,52,110,0,0,712
+954,118,118,True,RF00005,tRNA,data/raw/rf00005_seed.sto,42531,0.37781153395160433,2,1.776640727712042e-05,42,29,47,0,9,945
