@@ -13,14 +13,17 @@ The work does **not** establish compensatory evolution, causation, a universal f
 - [Main research report](manuscript/manuscript.md)
 - [Data provenance and checksums](data/README.md)
 - [Supplementary locus-audit methods](supplementary/supplementary_methods.md)
+- [Reproduction instructions and software scope](REPRODUCIBILITY.md)
 
 ## Repository contents
 
 - `manuscript/`: reader-facing report and selected main figures.
 - `supplementary/`: restricted-locus follow-up figure and supporting methods.
-- `data/processed/`: machine-readable summaries for the restricted tRNA-Phe(GAA) locus.
+- `data/tables/`: curated machine-readable QC, conservation, entropy, and base-pair summary tables.
+- `src/`, `scripts/`, `tests/`: core analysis code, figure-generation scripts, and focused tests.
+- `supplementary/tables/`: restricted tRNA-Phe(GAA) locus-level metrics.
 
-This is a curated reader-facing research snapshot. The raw Rfam seed files are not duplicated here; the source, release, retrieval date, and checksums are documented in the data guide. The analysis scripts and fully automated reproduction environment are still being curated and are not yet included, so this repository is not yet a turnkey reproduction package.
+This is a curated reader-facing research snapshot with the core descriptive-analysis source, focused tests, selected figure scripts, and result tables. Raw Rfam seed alignments are not duplicated; the source, release, retrieval date, and checksums are documented in the data guide. The full structural-annotation and deposited-structure workflows are not all automated by the core pipeline; see the reproduction guide for exact boundaries.
 
 ## Author and citation
 
