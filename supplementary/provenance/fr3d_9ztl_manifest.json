@@ -1,0 +1,33 @@
+{
+  "pdb_id": "9ZTL",
+  "pdb_cif": "data/structures/9ztl_updated.cif",
+  "pdb_sha256": "4401a250c6881fee8bc1f688d7a559b724e7ab7b18bda7d057cf0ce80f14480e",
+  "fr3d_repository": "https://github.com/BGSU-RNA/fr3d-python",
+  "fr3d_commit": "494a81ccb024abda18fb4c62115a77c6df608472",
+  "author_chains": {
+    "5S_rRNA": "b",
+    "P_site_tRNA": "5"
+  },
+  "annotation_categories": [
+    "basepair",
+    "stacking"
+  ],
+  "command": [
+    "/opt/hostedtoolcache/Python/3.12.15/x64/bin/python",
+    "/home/runner/work/_temp/fr3d-python/fr3d/classifiers/NA_pairwise_interactions.py",
+    "--input",
+    "/home/runner/work/rna-structure-conservation/rna-structure-conservation/data/structures",
+    "--output",
+    "/home/runner/work/rna-structure-conservation/rna-structure-conservation/results/structure_interactions",
+    "-c",
+    "basepair,stacking",
+    "--chain",
+    "b,5",
+    "9ZTL"
+  ],
+  "outputs": [
+    "results/structure_interactions/9ZTL_basepair.txt",
+    "results/structure_interactions/9ZTL_stacking.txt"
+  ],
+  "note": "FR3D output is a geometric interaction annotation of one deposited structure model, not experimental re-refinement or evolutionary evidence."
+}
