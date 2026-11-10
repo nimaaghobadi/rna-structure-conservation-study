@@ -15,8 +15,8 @@ from html import escape
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / "results" / "tables" / "base_pair_summary.csv"
-OUTPUT = ROOT / "results" / "figures" / "rna_base_pair_composition.svg"
+SOURCE = ROOT / "data" / "tables" / "base_pair_summary.csv"
+OUTPUT = ROOT / "figures" / "base_pair_composition.svg"
 ORDER = ("5S rRNA", "tRNA")
 PAIR_TYPES = ("AU", "UA", "GC", "CG", "GU", "UG")
 CATEGORIES = (
