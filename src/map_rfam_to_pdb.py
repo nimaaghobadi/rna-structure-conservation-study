@@ -1,0 +1,514 @@
+"""Map Rfam RF model positions to deposited 9ZTL residue identifiers.
+
+This script downloads the PDBe updated mmCIF (preferred) or accepts a local CIF.
+It aligns every ungapped Rfam seed sequence to the deposited polymer sequence,
+selects the best-supported seed-to-chain alignment, and writes a transparent
+per-RF-position map. It does not infer residue offsets from chain lengths.
+
+Run:
+    python -m src.map_rfam_to_pdb --pdb-id 9ZTL
+
+Or provide a previously downloaded, versioned mmCIF:
+    python -m src.map_rfam_to_pdb --cif data/structures/9ztl_updated.cif
+
+Outputs:
+    results/tables/rfam_to_pdb_9ztl.csv
+    data/processed/9ztl_mapping_manifest.json
+"""
+from __future__ import annotations
+
+import argparse
+import gzip
+import hashlib
+import json
+import urllib.request
+from pathlib import Path
+from tempfile import NamedTemporaryFile
+
+import pandas as pd
+from Bio import AlignIO
+from Bio.Align import PairwiseAligner
+from Bio.PDB.MMCIF2Dict import MMCIF2Dict
+
+ROOT = Path(__file__).resolve().parents[1]
+FAMILIES = {
+    "RF00001": {
+        "file": "rf00001_seed.sto",
+        "label_asym_id": "EA",
+        "auth_asym_id": "b",
+        "entity_id": "31",
+        "family": "5S rRNA",
+        "expected_polymer_length": 120,
+        "rfam_auth_start": 3,
+        "rfam_auth_end": 118,
+    },
+    "RF00005": {
+        "file": "rf00005_seed.sto",
+        "label_asym_id": "F",
+        "auth_asym_id": "5",
+        "entity_id": "6",
+        "family": "tRNA",
+        "expected_polymer_length": 75,
+        "rfam_auth_start": 1,
+        "rfam_auth_end": 72,
+    },
+}
+DOWNLOAD_URLS = [
+    "https://www.ebi.ac.uk/pdbe/static/entry/9ztl_updated.cif",
+    "https://files.rcsb.org/download/9ZTL.cif",
+]
+# Common modified RNA monomers are normalized only for sequence alignment.
+# Their original three-letter CCD identifiers remain in the output table.
+MODIFIED_RNA = {
+    "PSU": "U", "H2U": "U", "5MU": "U", "4SU": "U", "5BU": "U", "4OC": "C",
+    "1MA": "A", "MIA": "A", "6MA": "A", "2MA": "A",
+    "5MC": "C", "OMC": "C", "CBR": "C",
+    "7MG": "G", "1MG": "G", "2MG": "G", "M2G": "G",
+    "OMG": "G", "YG": "G", "QUO": "G",
+}
+CANONICAL = set("ACGU")
+
+
+def _as_list(cif: dict, key: str) -> list[str]:
+    value = cif.get(key, [])
+    return value if isinstance(value, list) else [value]
+
+
+def _scalar(cif: dict, key: str, default: str = "") -> str:
+    values = _as_list(cif, key)
+    return str(values[0]) if values else default
+
+
+def _norm(value: str) -> str:
+    return "" if value in {".", "?", "None"} else value
+
+
+def _base(comp_id: str) -> str:
+    comp_id = comp_id.upper()
+    if comp_id in CANONICAL:
+        return comp_id
+    return MODIFIED_RNA.get(comp_id, "N")
+
+
+def obtain_cif(local_path: Path | None) -> tuple[Path, str]:
+    if local_path:
+        if not local_path.is_file():
+            raise FileNotFoundError(local_path)
+        return local_path, "user-supplied local mmCIF"
+    target = ROOT / "data" / "structures" / "9ztl_updated.cif"
+    target.parent.mkdir(parents=True, exist_ok=True)
+    errors = []
+    for url in DOWNLOAD_URLS:
+        try:
+            request = urllib.request.Request(
+                url, headers={"User-Agent": "rna-structure-conservation/1.0"}
+            )
+            with urllib.request.urlopen(request, timeout=60) as response:
+                payload = response.read()
+            if payload[:2] == b"\x1f\x8b":
+                payload = gzip.decompress(payload)
+            if b"data_" not in payload[:2000]:
+                raise ValueError("Downloaded response does not look like mmCIF")
+            target.write_bytes(payload)
+            return target, url
+        except Exception as exc:  # retain all attempted sources in the error
+            errors.append(f"{url}: {type(exc).__name__}: {exc}")
+    raise RuntimeError("Could not retrieve 9ZTL mmCIF. " + " | ".join(errors))
+
+
+def load_cif(path: Path) -> dict:
+    if path.suffix == ".gz":
+        with gzip.open(path, "rt", encoding="utf-8") as handle:
+            text = handle.read()
+        with NamedTemporaryFile("w", suffix=".cif", encoding="utf-8") as tmp:
+            tmp.write(text)
+            tmp.flush()
+            return MMCIF2Dict(tmp.name)
+    return MMCIF2Dict(str(path))
+
+
+def extract_chain(cif: dict, spec: dict) -> list[dict]:
+    entity_ids = _as_list(cif, "_entity_poly_seq.entity_id")
+    entity_nums = _as_list(cif, "_entity_poly_seq.num")
+    entity_mons = _as_list(cif, "_entity_poly_seq.mon_id")
+    entity_sequence = {
+        int(num): mon for entity, num, mon in zip(entity_ids, entity_nums, entity_mons)
+        if entity == spec["entity_id"]
+    }
+    if not entity_sequence:
+        raise ValueError(f"No _entity_poly_seq rows for entity {spec['entity_id']}")
+
+    parent_ids = _as_list(cif, "_chem_comp.id")
+    parent_mons = _as_list(cif, "_chem_comp.mon_nstd_parent_comp_id")
+    one_letter_codes = _as_list(cif, "_chem_comp.one_letter_code")
+    parent_base = {}
+    for comp_id, parent, one_letter in zip(parent_ids, parent_mons, one_letter_codes):
+        parent = _norm(parent).upper()
+        one_letter = _norm(one_letter).upper()
+        candidates = [part.strip() for part in parent.split(",")]
+        canonical_parents = [part for part in candidates if part in CANONICAL]
+        if len(canonical_parents) == 1:
+            parent_base[comp_id.upper()] = canonical_parents[0]
+        elif one_letter in CANONICAL:
+            parent_base[comp_id.upper()] = one_letter
+
+    scheme_keys = {
+        "asym": "_pdbx_poly_seq_scheme.asym_id",
+        "seq": "_pdbx_poly_seq_scheme.seq_id",
+        "mon": "_pdbx_poly_seq_scheme.mon_id",
+        "auth_seq": "_pdbx_poly_seq_scheme.auth_seq_num",
+        "auth_mon": "_pdbx_poly_seq_scheme.auth_mon_id",
+        "ins": "_pdbx_poly_seq_scheme.pdb_ins_code",
+        "auth_chain": "_pdbx_poly_seq_scheme.pdb_strand_id",
+        "entity": "_pdbx_poly_seq_scheme.entity_id",
+    }
+    columns = {k: _as_list(cif, v) for k, v in scheme_keys.items()}
+    n = len(columns["asym"])
+    rows = []
+    for i in range(n):
+        if columns["asym"][i] != spec["label_asym_id"]:
+            continue
+        if columns["entity"][i] != spec["entity_id"]:
+            continue
+        rows.append({
+            "label_asym_id": columns["asym"][i],
+            "label_seq_id": int(columns["seq"][i]),
+            "label_comp_id": columns["mon"][i],
+            "auth_asym_id": _norm(columns["auth_chain"][i]),
+            "auth_seq_id": _norm(columns["auth_seq"][i]),
+            "auth_comp_id": _norm(columns["auth_mon"][i]),
+            "pdbx_PDB_ins_code": _norm(columns["ins"][i]),
+            "entity_poly_seq_mon_id": entity_sequence.get(int(columns["seq"][i]), ""),
+        })
+    if not rows:
+        raise ValueError(
+            f"No polymer-scheme rows for label chain {spec['label_asym_id']} "
+            f"and entity {spec['entity_id']}"
+        )
+    observed_auth_chains = {r["auth_asym_id"] for r in rows}
+    if observed_auth_chains != {spec["auth_asym_id"]}:
+        raise ValueError(
+            f"Auth chain mismatch for {spec['label_asym_id']}: {observed_auth_chains}"
+        )
+    rows.sort(key=lambda x: x["label_seq_id"])
+    if len(rows) != spec["expected_polymer_length"]:
+        raise ValueError(
+            f"Unexpected polymer length for {spec['label_asym_id']}: "
+            f"{len(rows)} != {spec['expected_polymer_length']}"
+        )
+    if [r["label_seq_id"] for r in rows] != list(range(1, len(rows) + 1)):
+        raise ValueError("Non-contiguous label_seq_id values in polymer scheme")
+
+    atom_keys = {
+        "label_asym": "_atom_site.label_asym_id",
+        "label_seq": "_atom_site.label_seq_id",
+        "auth_asym": "_atom_site.auth_asym_id",
+        "auth_seq": "_atom_site.auth_seq_id",
+        "comp": "_atom_site.label_comp_id",
+        "ins": "_atom_site.pdbx_PDB_ins_code",
+        "model": "_atom_site.pdbx_PDB_model_num",
+    }
+    atom = {key: _as_list(cif, value) for key, value in atom_keys.items()}
+    atom_residues = {}
+    for asym, seq, auth_asym, auth_seq, comp, ins, model in zip(
+        atom["label_asym"], atom["label_seq"], atom["auth_asym"],
+        atom["auth_seq"], atom["comp"], atom["ins"], atom["model"]
+    ):
+        if asym != spec["label_asym_id"] or model != "1" or seq in {".", "?"}:
+            continue
+        seq_id = int(seq)
+        observed_record = {
+            "auth_asym_id": _norm(auth_asym),
+            "auth_seq_id": _norm(auth_seq),
+            "label_comp_id": comp,
+            "pdbx_PDB_ins_code": _norm(ins),
+        }
+        previous = atom_residues.get(seq_id)
+        if previous and previous != observed_record:
+            raise ValueError(f"Inconsistent atom_site residue identity at label_seq_id {seq_id}")
+        atom_residues[seq_id] = observed_record
+
+    for row in rows:
+        seq_id = row["label_seq_id"]
+        row["has_model1_atoms"] = seq_id in atom_residues
+        atom_record = atom_residues.get(seq_id, {})
+        row["atom_site_auth_asym_id"] = atom_record.get("auth_asym_id", "")
+        row["atom_site_auth_seq_id"] = atom_record.get("auth_seq_id", "")
+        row["atom_site_label_comp_id"] = atom_record.get("label_comp_id", "")
+        row["atom_site_insertion_code"] = atom_record.get("pdbx_PDB_ins_code", "")
+        if row["has_model1_atoms"]:
+            if row["atom_site_auth_asym_id"] != row["auth_asym_id"]:
+                raise ValueError(f"auth_asym_id disagreement at label_seq_id {seq_id}")
+            if row["atom_site_auth_seq_id"] != row["auth_seq_id"]:
+                raise ValueError(f"auth_seq_id disagreement at label_seq_id {seq_id}")
+            if row["atom_site_insertion_code"] != row["pdbx_PDB_ins_code"]:
+                raise ValueError(f"insertion-code disagreement at label_seq_id {seq_id}")
+        row["normalized_base"] = (
+            parent_base.get(row["label_comp_id"].upper())
+            or _base(row["label_comp_id"])
+        )
+        row["is_modified_or_noncanonical_monomer"] = (
+            row["label_comp_id"].upper() not in CANONICAL
+        )
+        if row["entity_poly_seq_mon_id"] and row["entity_poly_seq_mon_id"] != row["label_comp_id"]:
+            raise ValueError(f"entity_poly_seq / poly_seq_scheme mismatch at label_seq_id {seq_id}")
+    return rows
+
+
+def best_seed_alignment(sto_path: Path, target_sequence: str):
+    alignment = AlignIO.read(str(sto_path), "stockholm")
+    aligner = PairwiseAligner()
+    aligner.mode = "local"
+    aligner.match_score = 2.0
+    aligner.mismatch_score = -1.0
+    aligner.open_gap_score = -5.0
+    aligner.extend_gap_score = -0.25
+    candidates = []
+    for record in alignment:
+        seq = str(record.seq).upper().replace("T", "U")
+        aln_cols = [i + 1 for i, char in enumerate(seq) if char not in "-.~_"]
+        query = "".join(char for char in seq if char not in "-.~_")
+        if not query:
+            continue
+        result = aligner.align(query, target_sequence)
+        best = result[0]
+        indices = best.indices
+        mapped = []
+        matches = 0
+        aligned = 0
+        for q_idx, t_idx in zip(indices[0], indices[1]):
+            if q_idx < 0 or t_idx < 0:
+                continue
+            aligned += 1
+            matches += query[q_idx] == target_sequence[t_idx]
+            mapped.append((aln_cols[q_idx], int(t_idx) + 1))
+        identity = matches / aligned if aligned else 0.0
+        coverage = aligned / len(query)
+        candidates.append({
+            "sequence_id": record.id,
+            "identity": identity,
+            "coverage": coverage,
+            "aligned_residues": aligned,
+            "mapping": dict(mapped),
+        })
+    if not candidates:
+        raise ValueError(f"No seed sequences found in {sto_path}")
+    candidates = [item for item in candidates if item["coverage"] >= 0.70]
+    if not candidates:
+        raise ValueError(
+            f"No seed sequence aligns over at least 70% of the query to the target chain in {sto_path}"
+        )
+    candidates.sort(
+        key=lambda x: (x["identity"], x["coverage"], x["aligned_residues"], x["sequence_id"]),
+        reverse=True,
+    )
+    return candidates[0], candidates[:10]
+
+
+def align_consensus_to_chain(query: str, target: str) -> tuple[dict[int, int], float, float]:
+    aligner = PairwiseAligner()
+    aligner.mode = "local"
+    aligner.match_score = 2.0
+    aligner.mismatch_score = -1.0
+    aligner.open_gap_score = -5.0
+    aligner.extend_gap_score = -0.25
+    alignments = aligner.align(query, target)
+    best = alignments[0]
+    mapping = {}
+    matches = 0
+    aligned = 0
+    for query_index, target_index in zip(best.indices[0], best.indices[1]):
+        if query_index < 0 or target_index < 0:
+            continue
+        aligned += 1
+        matches += query[query_index] == target[target_index]
+        mapping[int(query_index) + 1] = int(target_index) + 1
+    identity = matches / aligned if aligned else 0.0
+    coverage = aligned / len(query) if query else 0.0
+    if coverage < 0.70 or identity < 0.70:
+        raise ValueError(
+            f"RF consensus-to-chain alignment below threshold: identity={identity:.3f}, "
+            f"coverage={coverage:.3f}"
+        )
+    return mapping, identity, coverage
+
+
+def map_family(accession: str, spec: dict, cif: dict) -> tuple[list[dict], dict]:
+    rows = extract_chain(cif, spec)
+    chain_sequence = "".join(r["normalized_base"] for r in rows)
+    if "N" in chain_sequence:
+        unknown = sorted({
+            (row["label_comp_id"], row["entity_poly_seq_mon_id"])
+            for row in rows if row["normalized_base"] == "N"
+        })
+        raise ValueError(
+            f"Unmapped modified/noncanonical residues in {spec['label_asym_id']}: {unknown}. "
+            "Inspect CCD parent/one-letter annotations before adding a documented normalization."
+        )
+    sto_path = ROOT / "data" / "raw" / spec["file"]
+    best, top = best_seed_alignment(sto_path, chain_sequence)
+    top_map_values = {}
+    for candidate in top:
+        for column, target_position in candidate["mapping"].items():
+            top_map_values.setdefault(column, set()).add(target_position)
+    if best["identity"] < 0.70:
+        raise ValueError(
+            f"Best seed-to-chain identity is only {best['identity']:.3f}; "
+            "refusing a low-confidence automatic RF-to-PDB mapping"
+        )
+    alignment = AlignIO.read(str(sto_path), "stockholm")
+    rf_chunks = []
+    with sto_path.open(encoding="utf-8") as handle:
+        for line in handle:
+            if line.startswith("#=GC RF "):
+                rf_chunks.append(line.split()[2])
+    if not rf_chunks:
+        raise ValueError(f"No #=GC RF annotation in {sto_path}")
+    rf = "".join(rf_chunks)
+    if len(rf) != alignment.get_alignment_length():
+        raise ValueError("RF annotation length does not match Stockholm alignment")
+    rf_symbols = [symbol for symbol in rf if symbol != "."]
+    rf_consensus = "".join(symbol.upper().replace("T", "U") for symbol in rf_symbols)
+    if not set(rf_consensus).issubset(CANONICAL):
+        raise ValueError(f"Unsupported symbols in RF consensus sequence: {sorted(set(rf_consensus) - CANONICAL)}")
+    rf_to_chain, rf_identity, rf_coverage = align_consensus_to_chain(
+        rf_consensus, chain_sequence
+    )
+    model_pos = 0
+    output = []
+    for aln_col, rf_symbol in enumerate(rf, start=1):
+        if rf_symbol == ".":
+            continue
+        model_pos += 1
+        label_seq_id = rf_to_chain.get(model_pos)
+        residue = rows[label_seq_id - 1] if label_seq_id else None
+        seed_label_seq_id = best["mapping"].get(aln_col)
+        seed_residue = rows[seed_label_seq_id - 1] if seed_label_seq_id else None
+        consensus_seed_agreement = (
+            label_seq_id is not None and seed_label_seq_id == label_seq_id
+        )
+        alternatives = top_map_values.get(aln_col, set())
+        map_agreement = len(alternatives) == 1
+        auth_number = residue["auth_seq_id"] if residue else ""
+        try:
+            in_rfam_region = (
+                bool(auth_number)
+                and spec["rfam_auth_start"] <= int(auth_number) <= spec["rfam_auth_end"]
+            )
+        except ValueError:
+            in_rfam_region = False
+        output.append({
+            "family_accession": accession,
+            "family": spec["family"],
+            "rf_model_position": model_pos,
+            "stockholm_alignment_column": aln_col,
+            "rf_symbol": rf_symbol,
+            "best_seed_sequence_id": best["sequence_id"],
+            "rf_consensus_to_chain_identity": rf_identity,
+            "rf_consensus_coverage": rf_coverage,
+            "seed_to_chain_identity": best["identity"],
+            "seed_query_coverage": best["coverage"],
+            "best_seed_label_seq_id": seed_label_seq_id,
+            "best_seed_auth_seq_id": seed_residue["auth_seq_id"] if seed_residue else "",
+            "consensus_seed_map_agreement": consensus_seed_agreement,
+            "top10_alignment_map_agreement": map_agreement,
+            "top10_distinct_target_positions": len(alternatives),
+            "rfam_mapped_auth_region": f"{spec['rfam_auth_start']}-{spec['rfam_auth_end']}",
+            "within_rfam_mapped_region": in_rfam_region,
+            "label_asym_id": spec["label_asym_id"],
+            "auth_asym_id": spec["auth_asym_id"],
+            "label_seq_id": label_seq_id,
+            "auth_seq_id": residue["auth_seq_id"] if residue else "",
+            "pdbx_PDB_ins_code": residue["pdbx_PDB_ins_code"] if residue else "",
+            "label_comp_id": residue["label_comp_id"] if residue else "",
+            "normalized_base": residue["normalized_base"] if residue else "",
+            "has_model1_atoms": residue["has_model1_atoms"] if residue else False,
+            "is_modified_or_noncanonical_monomer": (
+                residue["is_modified_or_noncanonical_monomer"] if residue else False
+            ),
+            "mapping_status": (
+                "RF_CONSENSUS_AND_SEED_AGREE_MODELLED"
+                if residue and residue["has_model1_atoms"] and consensus_seed_agreement
+                else "RF_CONSENSUS_ONLY_REVIEW"
+                if residue and residue["has_model1_atoms"]
+                else "RF_CONSENSUS_POLYMER_UNRESOLVED"
+                if residue
+                else "NO_RF_CONSENSUS_ALIGNMENT_AT_POSITION"
+            ),
+        })
+    summary = {
+        "accession": accession,
+        "family": spec["family"],
+        "label_asym_id": spec["label_asym_id"],
+        "auth_asym_id": spec["auth_asym_id"],
+        "entity_id": spec["entity_id"],
+        "polymer_length": len(rows),
+        "model1_atom_residues": sum(r["has_model1_atoms"] for r in rows),
+        "best_seed_sequence_id": best["sequence_id"],
+        "rf_consensus_identity": rf_identity,
+        "rf_consensus_coverage": rf_coverage,
+        "best_seed_identity": best["identity"],
+        "best_query_coverage": best["coverage"],
+        "rfam_mapped_auth_region": f"{spec['rfam_auth_start']}-{spec['rfam_auth_end']}",
+        "top_seed_matches": [
+            {k: v for k, v in item.items() if k != "mapping"} for item in top
+        ],
+    }
+    return output, summary
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--pdb-id", default="9ZTL")
+    parser.add_argument("--cif", type=Path, help="Local mmCIF path; skips network download")
+    args = parser.parse_args()
+    if args.pdb_id.upper() != "9ZTL":
+        raise ValueError("This audited configuration currently supports only 9ZTL")
+    cif_path, source = obtain_cif(args.cif)
+    cif = load_cif(cif_path)
+    all_rows, summaries = [], []
+    for accession, spec in FAMILIES.items():
+        mapped, summary = map_family(accession, spec, cif)
+        all_rows.extend(mapped)
+        summaries.append(summary)
+    out_csv = ROOT / "supplementary" / "tables" / "rfam_to_pdb_9ztl_pairwise_crosscheck.csv"
+    out_csv.parent.mkdir(parents=True, exist_ok=True)
+    pd.DataFrame(all_rows).to_csv(out_csv, index=False)
+    digest = hashlib.sha256(cif_path.read_bytes()).hexdigest()
+    manifest = {
+        "pdb_id": "9ZTL",
+        "source": source,
+        "file": str(cif_path.relative_to(ROOT)) if cif_path.is_relative_to(ROOT) else str(cif_path),
+        "file_bytes": cif_path.stat().st_size,
+        "sha256": digest,
+        "summaries": summaries,
+        "mapping_method": (
+            "Local pairwise alignment of the non-dot RF consensus sequence to the "
+            "deposited polymer sequence defines the primary RF model position to label_seq_id "
+            "map. The best-matching ungapped seed sequence provides an independent cross-check; "
+            "disagreement is retained explicitly. auth_seq_id and insertion code are taken from "
+            "pdbx_poly_seq_scheme and cross-checked against atom_site. Atom presence is checked "
+            "against model 1 atom_site."
+        ),
+        "limitations": [
+            "Best-hit mapping is provisional and must be checked for ties or ambiguous local alignments.",
+            "A selected tRNA chain is one biological tRNA species, not a universal template for all RF00005 members.",
+            "Modified monomers not listed in MODIFIED_RNA stop the mapping rather than being guessed.",
+            "Polymer-scheme residues without model-1 atoms are retained and flagged unresolved.",
+        ],
+    }
+    manifest_path = ROOT / "supplementary" / "provenance" / "9ztl_pairwise_mapping_manifest.json"
+    manifest_path.parent.mkdir(parents=True, exist_ok=True)
+    manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+    print(f"Wrote {out_csv.relative_to(ROOT)}")
+    print(f"Wrote {manifest_path.relative_to(ROOT)}")
+    for item in summaries:
+        print(
+            f"{item['accession']}: {item['polymer_length']} polymer residues; "
+            f"{item['model1_atom_residues']} modelled; best seed identity "
+            f"{item['best_identity']:.3f}, coverage {item['best_query_coverage']:.3f}"
+        )
+
+
+if __name__ == "__main__":
+    main()
