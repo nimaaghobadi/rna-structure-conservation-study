@@ -30,7 +30,7 @@ These tables support the primary paired-versus-unpaired comparison and the publi
 The following machine-readable outputs are under [supplementary/tables/](../supplementary/tables/) and are indexed in [the supplementary README](../supplementary/README.md):
 
 - Restricted mitochondrial tRNA-Phe(GAA) locus: 16-record validation, per-column metrics, pair metrics, summary, and Bovidae composition sensitivity.
-- R-scape/9ZTL/FR3D: the 82-pair Stockholm-to-RF coordinate bridge, complete RF-model-to-PDB residue map, insertion/local-end records, and pair-level FR3D evidence.
+- R-scape/9ZTL/FR3D: raw R-scape `.cov`/`.power`/`.helixcov` outputs, alignment-block/tRNA-stem summary, the 82-pair Stockholm-to-RF coordinate bridge, complete RF-model-to-PDB residue map, insertion/local-end records, and pair-level FR3D evidence.
 - ViennaRNA: full/95%/90% summary statistics and pair-level probabilities for both families.
 
 Raw R-scape `.cov`/`.power` outputs and FR3D geometric annotation records are retained under `supplementary/rscape/` and `supplementary/structural/`. Run settings and source checksums are recorded under `supplementary/provenance/`.
