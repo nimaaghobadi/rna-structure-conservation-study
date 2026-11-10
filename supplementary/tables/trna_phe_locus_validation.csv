@@ -1,0 +1,17 @@
+organism,rfam_accession_version,complete_mitogenome_accession_version,tRNA_Phe_sequence_identity,tRNA_Phe_sequence_coverage,annotated_tRNA_feature_count,tRNA_Phe_copy_count,conserved_trnF_12S_trnV_16S_order
+Aepyceros melampus,M86496.1,NC_020675.1,1,1,22,1,true
+Aquarana catesbeiana,M57527.1,NC_022696.1,1,1,22,1,true
+Bos taurus,AF034440.1,PZ955539.1,1,1,22,1,true
+Damaliscus pygargus,M86499.1,NC_020627.1,1,0.9852941176470589,22,1,true
+Eudorcas thomsonii,M86501.1,NC_039669.1,0.9852941176470589,1,22,1,true
+Gadus morhua,X17660.1,NC_002081.1,1,1,22,1,true
+Homo sapiens,AF382005.1,AF382005.1,1,1,22,1,true
+Kobus ellipsiprymnus,M86497.1,NC_020715.1,1,1,22,1,true
+Madoqua kirkii,M86495.1,NC_020717.1,0.9705882352941176,1,22,1,true
+Mus musculus,AB049357.1,AB049357.1,1,1,22,1,true
+Oncorhynchus mykiss,L29771.1,L29771.1,1,1,22,1,true
+Oryx gazella,M86500.1,JN632678.1,0.9852941176470589,1,22,1,true
+Philantomba maxwellii,M86498.1,NC_020735.1,1,0.9855072463768116,22,1,true
+Rattus norvegicus,X14848.1,X14848.1,1,1,22,1,true
+Tragelaphus imberbis,M86493.1,NC_020619.1,1,1,22,1,true
+Xenopus laevis,M10217.1,M10217.1,1,1,22,1,true
