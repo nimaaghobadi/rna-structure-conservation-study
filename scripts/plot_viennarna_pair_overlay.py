@@ -5,9 +5,9 @@ import csv
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-EVIDENCE = ROOT / "results" / "tables" / "rscape_fr3d_structural_evidence.csv"
-VIENNA = ROOT / "results" / "tables" / "viennarna_pair_probabilities.csv"
-OUTPUT = ROOT / "results" / "figures" / "viennarna_ss_cons_overlay.svg"
+EVIDENCE = ROOT / "supplementary" / "tables" / "rscape_fr3d_structural_evidence.csv"
+VIENNA = ROOT / "supplementary" / "tables" / "viennarna_pair_probabilities.csv"
+OUTPUT = ROOT / "figures" / "viennarna_consensus_comparison.svg"
 
 FAMILIES = [
     ("RF00001", "5S rRNA", 120, 430, 165),
