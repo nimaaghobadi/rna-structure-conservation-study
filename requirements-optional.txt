@@ -1,0 +1,3 @@
+# Optional dependency for the supplementary ViennaRNA / RNAalifold analysis.
+# The core descriptive pipeline does not require this package.
+ViennaRNA==2.7.2
