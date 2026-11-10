@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use the analysis software, please cite this repository and the relevant Rfam data release."
+title: "RNA Structure Conservation: Public Research Resources"
+type: software
+authors:
+  - family-names: Ghobadi
+    given-names: Nima
+    orcid: "https://orcid.org/0009-0009-6146-3045"
+repository-code: "https://github.com/nimaaghobadi/rna-structure-conservation-study"
+abstract: "Public code, curated result tables, figures, supplementary methods, and provenance materials for a descriptive comparison of paired and explicitly unpaired positions in Rfam 15.1 seed alignments RF00001 (5S rRNA) and RF00005 (tRNA)."
+license: MIT
