@@ -1,0 +1,78 @@
+{
+  "pdb_id": "9ZTL",
+  "rfam_release": "15.1",
+  "rfam_structure_map_source": "https://rfam.org/structure/9ztl/av",
+  "cif_source": "cached PDBe updated mmCIF from official download",
+  "cif_file": "data/structures/9ztl_updated.cif",
+  "cif_bytes": 14218323,
+  "cif_sha256": "4401a250c6881fee8bc1f688d7a559b724e7ab7b18bda7d057cf0ce80f14480e",
+  "infernal_version": "1.1.5",
+  "cm_files": [
+    {
+      "accession": "RF00001",
+      "source": "https://rfam.org/family/RF00001/cm",
+      "file": "data/structures/rfam_cm/RF00001.cm",
+      "bytes": 80238,
+      "sha256": "390d717535fedd7d8c6a35e4a1c9f923fa5daa20b9926ced948fdc71bb8f9122"
+    },
+    {
+      "accession": "RF00005",
+      "source": "https://rfam.org/family/RF00005/cm",
+      "file": "data/structures/rfam_cm/RF00005.cm",
+      "bytes": 49721,
+      "sha256": "7698e524c9ae5b121186fe1e6608d7ab92bff31ef51e886186d7585a66090865"
+    }
+  ],
+  "summaries": [
+    {
+      "accession": "RF00001",
+      "family": "5S rRNA",
+      "label_asym_id": "EA",
+      "auth_asym_id": "b",
+      "entity_id": "31",
+      "polymer_length": 120,
+      "rfam_region_polymer_length": 116,
+      "model1_atom_residues": 119,
+      "cm_model_length": 120,
+      "mapped_model_positions": 116,
+      "model_deletions": 4,
+      "non_model_chain_residues": 4,
+      "mapped_auth_min": 3,
+      "mapped_auth_max": 118,
+      "rfam_expected_auth_region": "3-118",
+      "within_rfam_region": 116,
+      "seed_best_hit": "AB035926.1/5989-6104",
+      "seed_best_identity": 0.9913793103448276,
+      "seed_best_coverage": 1.0,
+      "seed_top10_best_identity": 0.9913793103448276
+    },
+    {
+      "accession": "RF00005",
+      "family": "tRNA",
+      "label_asym_id": "F",
+      "auth_asym_id": "5",
+      "entity_id": "6",
+      "polymer_length": 75,
+      "rfam_region_polymer_length": 72,
+      "model1_atom_residues": 75,
+      "cm_model_length": 71,
+      "mapped_model_positions": 71,
+      "model_deletions": 0,
+      "non_model_chain_residues": 4,
+      "mapped_auth_min": 1,
+      "mapped_auth_max": 72,
+      "rfam_expected_auth_region": "1-72",
+      "within_rfam_region": 71,
+      "seed_best_hit": "M20952.1/1-71",
+      "seed_best_identity": 0.8591549295774648,
+      "seed_best_coverage": 1.0,
+      "seed_top10_best_identity": 0.8591549295774648
+    }
+  ],
+  "mapping_method": "Infernal cmalign of the deposited polymer subsequence bounded by the Rfam structure-region author-numbering interval to the official Rfam 15.1 covariance model, using global model alignment (-g). Match-state RF columns define RF model positions; RF-dot columns are insertions relative to the model. The best seed-sequence pairwise alignment is retained only as a cross-check.",
+  "limitations": [
+    "The 9ZTL P-site tRNA is one biological tRNA species and does not represent all RF00005 members.",
+    "Polymer-scheme residues without model-1 atoms remain flagged as unresolved.",
+    "A CM alignment is a model-based homology mapping, not experimental validation of a base pair."
+  ]
+}
