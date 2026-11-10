@@ -1,0 +1,3 @@
+family,rfam_accession,n_sequences,original_alignment_length,filtered_alignment_length,average_identity_original_pct,average_identity_filtered_pct,annotated_pairs,significant_annotated_pairs,annotated_pairs_not_significant,additional_significant_pairs_outside_annotation,sensitivity_pct,positive_predictive_value_pct,f1_score_pct,mean_pairwise_power,median_pairwise_power,min_pairwise_power,expected_covarying_pairs,expected_covarying_pairs_sd,observed_covarying_pairs,cacofold_predicted_pairs,cacofold_significant_pairs
+5S rRNA,RF00001,712,230,121,55.84,55.97,34,22,12,9,64.71,70.97,67.69,0.9662,1.00,0.83,32.8,1.0,22,39,31
+tRNA,RF00005,954,118,74,43.94,44.29,21,21,0,18,100.00,53.85,70.00,0.9962,1.00,0.93,20.9,0.3,21,44,39
