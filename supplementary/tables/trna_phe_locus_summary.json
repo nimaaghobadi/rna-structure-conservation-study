@@ -1,0 +1,119 @@
+{
+  "status": "completed_descriptive_subset_analysis",
+  "family": "RF00005",
+  "locus": "vertebrate mitochondrial tRNA-Phe(GAA)",
+  "n_taxa": 16,
+  "alignment_length": 118,
+  "selected_sequence_ids": [
+    "M86496.1/1-68",
+    "M57527.1/1-70",
+    "AF034440.1/1115-1181",
+    "M86499.1/1-68",
+    "M86501.1/1-68",
+    "X17660.1/1002-1069",
+    "AF382005.1/581-651",
+    "M86497.1/1-66",
+    "M86495.1/1-68",
+    "AB049357.1/1-68",
+    "L29771.1/1004-1071",
+    "M86500.1/1-68",
+    "M86498.1/1-69",
+    "X14848.1/1-67",
+    "M86493.1/1-68",
+    "M10217.1/2136-2204"
+  ],
+  "n_paired_columns": 42,
+  "n_unpaired_columns": 29,
+  "n_consensus_pairs": 21,
+  "paired_vs_unpaired_column_summary": {
+    "paired": {
+      "n_columns": 42,
+      "mean_conservation": 0.8374999999999999,
+      "mean_entropy_bits": 0.5730135981622361,
+      "mean_valid_fraction": 0.9657738095238095,
+      "columns_with_all_taxa_valid": 40
+    },
+    "unpaired": {
+      "n_columns": 29,
+      "mean_conservation": 0.8011425834701696,
+      "mean_entropy_bits": 0.6680334854720903,
+      "mean_valid_fraction": 0.9396551724137931,
+      "columns_with_all_taxa_valid": 24
+    }
+  },
+  "paired_minus_unpaired_conservation": 0.036357416529830267,
+  "paired_minus_unpaired_entropy_bits": -0.09501988730985422,
+  "valid_fraction_threshold_sensitivity": {
+    "0.5": {
+      "paired": {
+        "n_columns": 40,
+        "mean_conservation": 0.840625,
+        "mean_entropy_bits": 0.5633341225866855
+      },
+      "unpaired": {
+        "n_columns": 28,
+        "mean_conservation": 0.8059452947845804,
+        "mean_entropy_bits": 0.6590955444512903
+      },
+      "paired_minus_unpaired_conservation": 0.03467970521541952,
+      "paired_minus_unpaired_entropy_bits": -0.09576142186460479
+    },
+    "0.7": {
+      "paired": {
+        "n_columns": 40,
+        "mean_conservation": 0.840625,
+        "mean_entropy_bits": 0.5633341225866855
+      },
+      "unpaired": {
+        "n_columns": 27,
+        "mean_conservation": 0.8193342151675486,
+        "mean_entropy_bits": 0.6319454822582072
+      },
+      "paired_minus_unpaired_conservation": 0.021290784832451393,
+      "paired_minus_unpaired_entropy_bits": -0.06861135967152177
+    },
+    "0.9": {
+      "paired": {
+        "n_columns": 40,
+        "mean_conservation": 0.840625,
+        "mean_entropy_bits": 0.5633341225866855
+      },
+      "unpaired": {
+        "n_columns": 24,
+        "mean_conservation": 0.8463541666666666,
+        "mean_entropy_bits": 0.5473803851676604
+      },
+      "paired_minus_unpaired_conservation": -0.005729166666666674,
+      "paired_minus_unpaired_entropy_bits": 0.01595373741902506
+    }
+  },
+  "valid_pair_observations": 324,
+  "possible_pair_observations": 336,
+  "valid_pair_fraction": 0.9642857142857143,
+  "canonical_or_wobble_pair_observations": 305,
+  "canonical_or_wobble_pair_fraction": 0.941358024691358,
+  "bovid_representation_sensitivity": {
+    "bovidae_taxa_in_original_set": 9,
+    "non_bovidae_taxa_in_original_set": 7,
+    "subset_size_per_choice": 8,
+    "all_possible_single_bovid_representatives_tested": 9,
+    "paired_minus_unpaired_conservation_min": -0.015640394088669907,
+    "paired_minus_unpaired_conservation_max": 0.003243021346469588,
+    "paired_minus_unpaired_entropy_bits_min": -0.039372012883195806,
+    "paired_minus_unpaired_entropy_bits_max": 0.05685932231237567,
+    "table": "supplementary/tables/trna_phe_bovid_sensitivity.csv",
+    "interpretation": "Taxon-composition sensitivity only; not a phylogenetic correction. Each of the nine possible single-Bovidae representatives is tested with all seven non-Bovidae taxa."
+  },
+  "interpretation_limits": [
+    "This is a descriptive 16-taxon orthologous-locus subset analysis, not a replacement for broad RF00005 family summaries.",
+    "No phylogenetic weighting is applied; species are not treated as independent replicates.",
+    "Alignment columns and base-pair endpoints are not independent biological replicates.",
+    "Conservation and canonical-pair frequencies alone do not establish compensatory evolution or functional constraint.",
+    "A species-tree-aware analysis is a separate pending step."
+  ],
+  "source_checksums": {
+    "stockholm_sha256": "d1a66517066e6d4fbad3bd382934406df3018ff9bdaf72f22732f4c9740c9505",
+    "candidate_table_sha256": "9cad04891b96eea89debfee44b3b99b1ff130f2fe80939d9e4fc75bb79157525",
+    "orthology_acceptance_sha256": "dbd10e34902af2377dd6d29097c38234d65f3ea91b7f71cab28f1b768f834853"
+  }
+}
