@@ -34,8 +34,10 @@ The raw seed alignments are not redistributed in this repository; download them 
 | `RF00001_5S_rRNA.power` | `1f647861080d27bec80ef4db4f04d830c701d254ae5f72379612a41b96ecd590` |
 | `RF00005_tRNA.cov` | `30dea1605234f8efc5d58472f3d52d209e054afb7b019bf93c15937544b58952` |
 | `RF00005_tRNA.power` | `2263defebbf8a984faf1c59e3adb94914aa23e5a19fa09594edc832f5a152a57` |
+| `RF00001_5S_rRNA.helixcov` | `6bc9e4363846e5878ae3cc878913a05080096d148fbe621d8c2cb49d3e75f617` |
+| `RF00005_tRNA.helixcov` | `6589f052023874d146904f04f50ff8e09d18fb0bdfbebdb3e3bd2b67ff8361e8` |
 
-The four files are stored under [supplementary/rscape/](../rscape/). The pair-coordinate table derived from these outputs is [rscape_coordinate_mapping.csv](../tables/rscape_coordinate_mapping.csv). It preserves the original Stockholm alignment coordinates and the Rfam RF-model coordinates; the full FR3D-reconciled records are in [rscape_fr3d_structural_evidence.csv](../tables/rscape_fr3d_structural_evidence.csv).
+The six primary R-scape files (`.cov`, `.power`, and `.helixcov` for each family) are stored under [supplementary/rscape/](../rscape/). The alignment-block/tRNA-stem aggregation is available as [rscape_alignment_block_summary.csv](../tables/rscape_alignment_block_summary.csv). The pair-coordinate table derived from these outputs is [rscape_coordinate_mapping.csv](../tables/rscape_coordinate_mapping.csv). It preserves the original Stockholm alignment coordinates and the Rfam RF-model coordinates; the full FR3D-reconciled records are in [rscape_fr3d_structural_evidence.csv](../tables/rscape_fr3d_structural_evidence.csv).
 
 ## Interpretation limits
 
