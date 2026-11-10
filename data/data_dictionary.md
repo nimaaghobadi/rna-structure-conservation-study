@@ -6,7 +6,7 @@ This guide defines the fields and denominators used in the committed result tabl
 
 ### `qc_summary.csv`
 
-One row per family. `n_sequences` and `alignment_length` describe the input alignment; `ss_cons_length` checks the consensus annotation length; `rf_annotation_present` records whether the Stockholm reference annotation is available. Gap and ambiguous counts/fractions are calculated over all sequence-by-column characters. `n_paired_columns`, `n_unpaired_columns`, `n_insertion_columns`, and `n_unknown_structure_columns` describe the structure-state classification. `n_coordinate_overlap_sequences` counts IDs flagged by the coordinate-overlap audit; these sequences remain in the primary analysis.
+One row per family. `n_sequences` and `alignment_length` describe the input alignment; `ss_cons_length` checks the consensus annotation length; `rf_annotation_present` records whether the Stockholm reference annotation is available. Gap and ambiguous counts/fractions are calculated over all sequence-by-column characters. `n_paired_columns`, `n_unpaired_columns`, `n_insertion_columns`, and `n_unknown_structure_columns` describe the structure-state classification. `n_coordinate_overlap_sequences` counts IDs flagged by the coordinate-overlap audit; these sequences remain in the primary analysis. `n_sequences_after_overlap_filter` is the remaining sequence count in the separate overlap sensitivity analysis. `accession`, `family`, and `raw_file` identify the source family and expected local input path.
 
 ### `per_column_metrics.csv`
 
@@ -53,7 +53,7 @@ One row per family, pooling the pair observations over all annotated consensus p
 
 ### R-scape and FR3D
 
-- `supplementary/tables/rscape_summary.csv`: one row per family. Reports R-scape v2.6.21 input/filtered alignment dimensions, annotated and detected pairs, additional significant pairs outside the supplied annotation, R-scape sensitivity/positive predictive value/F score relative to the supplied annotation, and power summaries. The final three CaCoFold fields report alternative-structure predicted/significant pair counts. These are method outputs, not confirmation of biological truth or experimental validation.
+- `supplementary/tables/rscape_summary.csv`: one row per family. Reports R-scape v2.6.21 input/filtered alignment dimensions, annotated and detected pairs, additional significant pairs outside the supplied annotation, R-scape sensitivity/positive predictive value/F score relative to the supplied annotation, and power summaries. The final two CaCoFold fields report alternative-structure predicted and significant pair counts. These are method outputs, not confirmation of biological truth or experimental validation.
 - `rscape_alignment_block_summary.csv`: R-scape covariation counts grouped by nested alignment blocks and tRNA stems; 5S entries are not assigned named helices.
 - `rscape_coordinate_mapping.csv`: 82-row bridge from original Stockholm pair coordinates to Rfam RF-model coordinates and R-scape pair statistics.
 - `rfam_to_pdb_9ztl_cmalign.csv`: covariance-model position to 9ZTL residue mapping. PDB label-chain and author-chain identifiers are distinct fields.
