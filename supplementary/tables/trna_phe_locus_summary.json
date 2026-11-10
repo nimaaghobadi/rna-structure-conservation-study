@@ -109,11 +109,9 @@
     "No phylogenetic weighting is applied; species are not treated as independent replicates.",
     "Alignment columns and base-pair endpoints are not independent biological replicates.",
     "Conservation and canonical-pair frequencies alone do not establish compensatory evolution or functional constraint.",
-    "A species-tree-aware analysis is a separate pending step."
+    "No species-tree-aware evolutionary analysis is included."
   ],
   "source_checksums": {
-    "stockholm_sha256": "d1a66517066e6d4fbad3bd382934406df3018ff9bdaf72f22732f4c9740c9505",
-    "candidate_table_sha256": "9cad04891b96eea89debfee44b3b99b1ff130f2fe80939d9e4fc75bb79157525",
-    "orthology_acceptance_sha256": "dbd10e34902af2377dd6d29097c38234d65f3ea91b7f71cab28f1b768f834853"
+    "stockholm_sha256": "d1a66517066e6d4fbad3bd382934406df3018ff9bdaf72f22732f4c9740c9505"
   }
 }
