@@ -18,3 +18,12 @@ Raw Stockholm alignments are not duplicated here. The paired-versus-unpaired res
 - `tables/base_pair_summary.csv`: valid denominators and observed canonical/wobble pair composition.
 
 These are the exact summary tables used for the main descriptive results. The restricted mitochondrial tRNA-Phe(GAA) subset metrics and the FR3D evidence summary are in `../supplementary/tables/`.
+
+
+## Additional sensitivity and provenance files
+
+- provenance/rfam_seed_download_manifest.json: retrieval timestamp, official Rfam family endpoints, alignment dimensions, validation metadata, and SHA-256 checksums for the two source seed files. The source alignments themselves are not redistributed.
+- tables/sensitivity_by_validity.csv: paired-minus-unpaired conservation summaries after minimum valid-base coverage thresholds of 0.50, 0.70, and 0.90.
+- tables/sequence_redundancy_sensitivity.csv: full-seed summaries compared with deterministic 95% and 90% identity-reduced representative sets. This is not phylogenetic correction.
+
+Selected scientific and software references are listed in [REFERENCES.md](../REFERENCES.md).
