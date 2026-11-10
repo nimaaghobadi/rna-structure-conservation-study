@@ -1,0 +1,13 @@
+family,block_type,left_alignment_range,right_alignment_range,biological_label,annotated_pairs,significant_covarying_pairs,not_detected_pairs,covarying_fraction_pct
+RF00001,NESTED,71-81,99-108,5S rRNA alignment block,6,4,2,66.67
+RF00001,NESTED,54-55,112-113,5S rRNA alignment block,2,0,2,0.00
+RF00001,NESTED,28-36,136-140,5S rRNA alignment block,5,4,1,80.00
+RF00001,NESTED,21-22,144-146,5S rRNA alignment block,2,2,0,100.00
+RF00001,NESTED,177-178,183-185,5S rRNA alignment block,2,2,0,100.00
+RF00001,NESTED,166-169,193-199,5S rRNA alignment block,3,0,3,0.00
+RF00001,NESTED,149-159,204-214,5S rRNA alignment block,5,4,1,80.00
+RF00001,NESTED,3-13,217-229,5S rRNA alignment block,9,6,3,66.67
+RF00005,NESTED,12-15,29-32,D stem,4,4,0,100.00
+RF00005,NESTED,35-40,49-54,anticodon stem,5,5,0,100.00
+RF00005,NESTED,86-91,103-108,TΨC stem,5,5,0,100.00
+RF00005,NESTED,1-7,110-116,acceptor stem,7,7,0,100.00
