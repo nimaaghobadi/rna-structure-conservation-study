@@ -1,7 +1,7 @@
 """Regenerate the project base-pair composition SVG from the archived CSV.
 
 Run from the repository root:
-    python analysis/plot_rna_biology_figures.py
+    python scripts/plot_rna_biology_figures.py
 
 Bars show the composition among valid sequence-by-pair observations. Missing or
 ambiguous observations are excluded from each bar and reported as coverage.
