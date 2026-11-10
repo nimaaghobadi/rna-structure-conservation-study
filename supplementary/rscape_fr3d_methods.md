@@ -10,7 +10,7 @@ R-scape v2.6.21 was run on the original Rfam seed Stockholm alignments with the 
 
 The R-scape left/right positions in the primary covariance output are 1-based positions in the original input Stockholm alignment. This was checked against the original `SS_cons` annotations: all significant pairs marked as belonging to the supplied structure match the corresponding pairs at the same Stockholm columns (22/22 for RF00001 and 21/21 for RF00005). The shorter effective/tested alignment length reported in the R-scape log is not a coordinate transform.
 
-Stockholm columns map to Rfam covariance-model positions by counting non-insertion symbols in the `#=GC RF` annotation up to the target column. A dot in `#=GC RF` denotes an insertion column and has no RF model coordinate. The 82-row [R-scape coordinate bridge](tables/rscape_coordinate_mapping.csv) preserves the original alignment positions, RF-model positions, pair class, and R-scape statistics.
+Stockholm columns map to Rfam covariance-model positions by counting non-insertion symbols in the `#=GC RF` annotation up to the target column. A dot in `#=GC RF` denotes an insertion column and has no RF model coordinate. The 82-row [R-scape coordinate bridge](tables/rscape_coordinate_mapping.csv) preserves the original alignment positions, RF-model positions, pair class, and R-scape statistics. The raw `.helixcov` outputs are also archived; their alignment-block and tRNA-stem aggregation is in [rscape_alignment_block_summary.csv](tables/rscape_alignment_block_summary.csv). The 5S entries are deliberately labelled as alignment blocks rather than assigned to named structural helices.
 
 ## Rfam covariance-model mapping to 9ZTL
 
