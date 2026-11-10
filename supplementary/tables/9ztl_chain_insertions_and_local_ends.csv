@@ -1,0 +1,9 @@
+family_accession,family,cm_alignment_column,rf_symbol,label_asym_id,auth_asym_id,label_seq_id,auth_seq_id,pdbx_PDB_ins_code,label_comp_id,normalized_base,has_model1_atoms,reason
+RF00001,5S rRNA,,,EA,b,1,1,,U,U,True,OUTSIDE_Rfam_STRUCTURE_REGION
+RF00001,5S rRNA,,,EA,b,2,2,,G,G,True,OUTSIDE_Rfam_STRUCTURE_REGION
+RF00001,5S rRNA,,,EA,b,119,119,,A,A,True,OUTSIDE_Rfam_STRUCTURE_REGION
+RF00001,5S rRNA,,,EA,b,120,,,U,U,False,OUTSIDE_Rfam_STRUCTURE_REGION
+RF00005,tRNA,20,.,F,5,20,20,,U,U,True,CM_INSERTION
+RF00005,tRNA,,,F,5,73,73,,C,C,True,OUTSIDE_Rfam_STRUCTURE_REGION
+RF00005,tRNA,,,F,5,74,74,,C,C,True,OUTSIDE_Rfam_STRUCTURE_REGION
+RF00005,tRNA,,,F,5,75,75,,A,A,True,OUTSIDE_Rfam_STRUCTURE_REGION
