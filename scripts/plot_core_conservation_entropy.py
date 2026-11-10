@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Create the main manuscript SVG for paired/unpaired conservation and entropy."""
+"""Create the primary public SVG for paired/unpaired conservation and entropy."""
 from __future__ import annotations
 
 import argparse
