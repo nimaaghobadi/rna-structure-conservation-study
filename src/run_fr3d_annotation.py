@@ -71,7 +71,14 @@ def main() -> None:
         "fr3d_commit": FR3D_COMMIT,
         "author_chains": {"5S_rRNA": "b", "P_site_tRNA": "5"},
         "annotation_categories": ["basepair", "stacking"],
-        "command": command,
+        "command_template": [
+            "python fr3d/classifiers/NA_pairwise_interactions.py",
+            "--input data/structures",
+            "--output supplementary/structural",
+            "-c basepair,stacking",
+            "--chain b,5",
+            "9ZTL",
+        ],
         "outputs": outputs,
         "note": (
             "FR3D output is a geometric interaction annotation of one deposited "
