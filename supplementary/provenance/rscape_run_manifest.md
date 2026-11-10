@@ -35,7 +35,7 @@ The raw seed alignments are not redistributed in this repository; download them 
 | `RF00005_tRNA.cov` | `30dea1605234f8efc5d58472f3d52d209e054afb7b019bf93c15937544b58952` |
 | `RF00005_tRNA.power` | `2263defebbf8a984faf1c59e3adb94914aa23e5a19fa09594edc832f5a152a57` |
 
-The four files are stored under [supplementary/rscape/](rscape/). The pair-coordinate table derived from these outputs is [rscape_coordinate_mapping.csv](tables/rscape_coordinate_mapping.csv). It preserves the original Stockholm alignment coordinates and the Rfam RF-model coordinates; the full FR3D-reconciled records are in [rscape_fr3d_structural_evidence.csv](tables/rscape_fr3d_structural_evidence.csv).
+The four files are stored under [supplementary/rscape/](../rscape/). The pair-coordinate table derived from these outputs is [rscape_coordinate_mapping.csv](../tables/rscape_coordinate_mapping.csv). It preserves the original Stockholm alignment coordinates and the Rfam RF-model coordinates; the full FR3D-reconciled records are in [rscape_fr3d_structural_evidence.csv](../tables/rscape_fr3d_structural_evidence.csv).
 
 ## Interpretation limits
 
