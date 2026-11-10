@@ -14,6 +14,8 @@ This repository contains the reader-facing resources needed to inspect and reuse
 - `tests/`: focused tests for the core metrics and Stockholm parsing.
 - `REPRODUCIBILITY.md`: execution instructions, dependencies, and explicit boundaries of what the public pipeline does and does not regenerate.
 - `data/README.md`: Rfam source details, release, retrieval date, checksums, and descriptions of the public tables.
+- `data/provenance/`: machine-readable Rfam seed download manifest.
+- `REFERENCES.md`: selected literature, database, software, and structural-record references supporting the public resources.
 
 ## Scientific scope
 
