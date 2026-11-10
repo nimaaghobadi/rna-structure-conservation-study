@@ -8,7 +8,7 @@ This repository contains the reader-facing resources needed to inspect and reuse
 
 - `figures/`: selected consensus, base-pair composition, covariation/structure-context, and comparative-folding figures.
 - `data/tables/`: curated quality-control, per-column, conservation, entropy, and base-pair result tables.
-- `supplementary/`: restricted mitochondrial tRNA-Phe(GAA) locus methods, figures, and machine-readable supporting tables.
+- `supplementary/`: restricted mitochondrial tRNA-Phe(GAA) locus methods, figures, and machine-readable supporting tables, plus the pair-level R-scape/FR3D structural-context audit.
 - `src/`: core Rfam download, Stockholm parsing, and descriptive-analysis code.
 - `scripts/`: selected figure-generation scripts.
 - `tests/`: focused tests for the core metrics and Stockholm parsing.
