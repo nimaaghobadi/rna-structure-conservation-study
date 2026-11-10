@@ -30,17 +30,6 @@ from src.map_rfam_to_pdb import (
 RFAM_RELEASE = "15.1"
 
 
-def infernal_version() -> str:
-    result = subprocess.run(
-        ["cmalign", "-h"], capture_output=True, text=True, check=False
-    )
-    combined = result.stdout + "\\n" + result.stderr
-    for line in combined.splitlines():
-        if "INFERNAL" in line.upper():
-            return line.strip()
-    raise RuntimeError("Could not determine Infernal version from cmalign -h")
-
-
 def sha256(path: Path) -> str:
     digest = hashlib.sha256()
     with path.open("rb") as handle:
