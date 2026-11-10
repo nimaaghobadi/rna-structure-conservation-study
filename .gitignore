@@ -1,0 +1,23 @@
+# Python bytecode and test caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local environments and secrets
+.venv/
+venv/
+.env
+.env.*
+
+# Downloaded upstream data and locally generated pipeline outputs.
+# Raw Rfam seed alignments and temporary analysis products are not committed.
+data/raw/
+data/processed/
+results/
+
+# Local editor and operating-system files
+.DS_Store
+.idea/
+.vscode/
