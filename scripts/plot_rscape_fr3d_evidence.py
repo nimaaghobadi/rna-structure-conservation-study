@@ -6,8 +6,8 @@ from collections import defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / "results" / "tables" / "rscape_fr3d_structural_evidence_summary.csv"
-OUTPUT = ROOT / "results" / "figures" / "rscape_fr3d_evidence.svg"
+SOURCE = ROOT / "supplementary" / "tables" / "rscape_fr3d_evidence_summary.csv"
+OUTPUT = ROOT / "figures" / "rscape_fr3d_evidence.svg"
 
 CATEGORIES = [
     ("DIRECT_BASEPAIR_ANNOTATED", "Direct base-pair annotation", "#2A7F62"),
