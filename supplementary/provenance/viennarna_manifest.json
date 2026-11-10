@@ -1,62 +1,23 @@
 {
   "viennarna_version": "2.7.2",
   "python_binding": "ViennaRNA PyPI 2.7.2",
-  "model": "default ViennaRNA Turner parameter set at 37 C",
-  "alignment_method": "RNA.fold_compound(alignment), comparative MFE and partition function",
-  "constraint_policy": "unconstrained; Rfam SS_cons is used only for post hoc comparison",
-  "subsets": "full seed, deterministic greedy 95% and 90% identity representatives",
-  "representative_selection": "src.metrics.greedy_identity_representatives; lexicographic deterministic order; 50% minimum overlap",
+  "model": "Default ViennaRNA Turner parameter set at 37 C",
+  "method": "Comparative RNAalifold MFE and partition-function/base-pair-probability analysis",
+  "constraint_policy": "Unconstrained prediction; Rfam SS_cons used only for post hoc comparison",
+  "subsets": {
+    "RF00001": {"full": 712, "identity_95": 524, "identity_90": 397},
+    "RF00005": {"full": 954, "identity_95": 855, "identity_90": 719}
+  },
+  "representative_selection": "Deterministic greedy identity representatives from src.metrics.greedy_identity_representatives; lexicographic order and 50% minimum overlap",
   "probability_cutoff": 0.05,
-  "ambiguity_policy": "IUPAC symbols other than A/C/G/U are converted to N only in ViennaRNA input; source Stockholm files are preserved unchanged.",
-  "inputs": [
-    {
-      "file": "data/processed/viennarna/RF00001_full.sto",
-      "sha256": "a0f1babf038991fe252f93ecbba039ebe398df9d3ef797c9b944d294ea0078d5"
-    },
-    {
-      "file": "data/processed/viennarna/RF00001_full_sequence_ids.txt",
-      "sha256": "68354f0e9c587f34f19318dd41338aff624feb6620e0d9626db935e55248f47c"
-    },
-    {
-      "file": "data/processed/viennarna/RF00001_identity95.sto",
-      "sha256": "bd4a7ec587fea82b79156957860b38ac7ba6fa3b76996f33ca41e73b0d9a6f84"
-    },
-    {
-      "file": "data/processed/viennarna/RF00001_identity95_sequence_ids.txt",
-      "sha256": "4f522e36d26ffebbb7add9a5845f3260a28ac0dd8228d3b2bde4eead75876d4d"
-    },
-    {
-      "file": "data/processed/viennarna/RF00001_identity90.sto",
-      "sha256": "6faca6b0fba2cbd05056bf88ad0ebd3b13e0a54f14350409c6e81837fc4e0430"
-    },
-    {
-      "file": "data/processed/viennarna/RF00001_identity90_sequence_ids.txt",
-      "sha256": "8e72fd34a0e656230e3e3d41c6503bb4474f66ca393fc03a9e4f8e39a1b3eac6"
-    },
-    {
-      "file": "data/processed/viennarna/RF00005_full.sto",
-      "sha256": "7f4e99ed53cb74789dd3efe45ae7ad6a83ae066551b83f22c2ac5deaef2681fc"
-    },
-    {
-      "file": "data/processed/viennarna/RF00005_full_sequence_ids.txt",
-      "sha256": "51236e6e1f6ce9ea45f1d993f8c1e2b955142e4b73df960d2049beea3873e787"
-    },
-    {
-      "file": "data/processed/viennarna/RF00005_identity95.sto",
-      "sha256": "472ac2840665707954b67a554dc3ecc5f17fd6dc52ff63e2677b44bbdea2f122"
-    },
-    {
-      "file": "data/processed/viennarna/RF00005_identity95_sequence_ids.txt",
-      "sha256": "49f076db9b1a4f817014069b9a2dec2c8c1ab33ebea81c9b80582603857ffd67"
-    },
-    {
-      "file": "data/processed/viennarna/RF00005_identity90.sto",
-      "sha256": "7ba1acba0379114988a49dde14e9da608436ed864c161a502860319d7e74a7fc"
-    },
-    {
-      "file": "data/processed/viennarna/RF00005_identity90_sequence_ids.txt",
-      "sha256": "3a633c5eaff7a43b2bdfe63896ab7d5f532951c2bc240dadea16535b6975a4cf"
-    }
+  "ambiguity_policy": "IUPAC symbols other than A/C/G/U are converted to N only in ViennaRNA input; source Stockholm alignments are not modified.",
+  "source_seed_sha256": {
+    "RF00001": "18f91da6b0d9a668caf3d50849db437584140923e5477f7b21ed59453100f77c",
+    "RF00005": "d1a66517066e6d4fbad3bd382934406df3018ff9bdaf72f22732f4c9740c9505"
+  },
+  "result_tables": [
+    "supplementary/tables/viennarna_summary.csv",
+    "supplementary/tables/viennarna_pair_probabilities.csv"
   ],
   "interpretation_limits": [
     "RNAalifold predicts nested secondary structures and does not model WUSS pseudoknots.",
