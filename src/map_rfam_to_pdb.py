@@ -12,8 +12,8 @@ Or provide a previously downloaded, versioned mmCIF:
     python -m src.map_rfam_to_pdb --cif data/structures/9ztl_updated.cif
 
 Outputs:
-    results/tables/rfam_to_pdb_9ztl.csv
-    data/processed/9ztl_mapping_manifest.json
+    supplementary/tables/rfam_to_pdb_9ztl_pairwise_crosscheck.csv
+    supplementary/provenance/9ztl_pairwise_mapping_manifest.json
 """
 from __future__ import annotations
 
