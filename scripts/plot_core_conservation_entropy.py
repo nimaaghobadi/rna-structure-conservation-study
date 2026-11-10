@@ -8,9 +8,9 @@ from pathlib import Path
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
-CONSERVATION = ROOT / "results/tables/conservation_by_structure.csv"
-ENTROPY = ROOT / "results/tables/entropy_by_structure.csv"
-OUTPUT = ROOT / "results/figures/figure_1_conservation_entropy.svg"
+CONSERVATION = ROOT / "data/tables/conservation_by_structure.csv"
+ENTROPY = ROOT / "data/tables/entropy_by_structure.csv"
+OUTPUT = ROOT / "figures/conservation_entropy.svg"
 
 FAMILIES = ("5S rRNA", "tRNA")
 STATES = ("paired", "unpaired")
