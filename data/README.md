@@ -1,5 +1,7 @@
 # Data provenance
 
+For column names, denominators, and interpretation of every public result table, see the [public data dictionary](data_dictionary.md).
+
 The core analysis uses Rfam 15.1 seed alignments RF00001 (712 sequences, 230 columns) and RF00005 (954 sequences, 118 columns), retrieved 2026-10-30. Official sources: https://rfam.org/downloads, https://rfam.org/family/RF00001, and https://rfam.org/family/RF00005.
 
 SHA-256 RF00001: `18f91da6b0d9a668caf3d50849db437584140923e5477f7b21ed59453100f77c`
@@ -30,10 +32,10 @@ These tables support the primary paired-versus-unpaired comparison and the publi
 The following machine-readable outputs are under [supplementary/tables/](../supplementary/tables/) and are indexed in [the supplementary README](../supplementary/README.md):
 
 - Restricted mitochondrial tRNA-Phe(GAA) locus: 16-record validation, per-column metrics, pair metrics, summary, and Bovidae composition sensitivity.
-- R-scape/9ZTL/FR3D: raw R-scape `.cov`/`.power`/`.helixcov` outputs, alignment-block/tRNA-stem summary, the 82-pair Stockholm-to-RF coordinate bridge, complete RF-model-to-PDB residue map, insertion/local-end records, and pair-level FR3D evidence.
+- R-scape/CaCoFold/9ZTL/FR3D: primary and CaCoFold `.cov`/`.power`/`.helixcov` outputs, the family-level R-scape summary, alignment-block/tRNA-stem summary, the 82-pair Stockholm-to-RF coordinate bridge, complete RF-model-to-PDB residue map, insertion/local-end records, and pair-level FR3D evidence.
 - ViennaRNA: full/95%/90% summary statistics and pair-level probabilities for both families.
 
-Raw R-scape `.cov`/`.power` outputs and FR3D geometric annotation records are retained under `supplementary/rscape/` and `supplementary/structural/`. Run settings and source checksums are recorded under `supplementary/provenance/`.
+Raw primary and CaCoFold R-scape `.cov`/`.power`/`.helixcov` outputs are retained under `supplementary/rscape/`; FR3D geometric annotation records are retained under `supplementary/structural/`. Run settings and source checksums are recorded under `supplementary/provenance/`.
 
 ## Third-party data boundary
 

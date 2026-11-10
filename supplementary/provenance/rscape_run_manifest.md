@@ -39,6 +39,20 @@ The raw seed alignments are not redistributed in this repository; download them 
 
 The six primary R-scape files (`.cov`, `.power`, and `.helixcov` for each family) are stored under [supplementary/rscape/](../rscape/). The alignment-block/tRNA-stem aggregation is available as [rscape_alignment_block_summary.csv](../tables/rscape_alignment_block_summary.csv). The pair-coordinate table derived from these outputs is [rscape_coordinate_mapping.csv](../tables/rscape_coordinate_mapping.csv). It preserves the original Stockholm alignment coordinates and the Rfam RF-model coordinates; the full FR3D-reconciled records are in [rscape_fr3d_structural_evidence.csv](../tables/rscape_fr3d_structural_evidence.csv).
 
+
+## Archived CaCoFold alternative-structure outputs
+
+| File | SHA-256 |
+|---|---|
+| `RF00001_5S_rRNA.cacofold.cov` | `7cc074b286b1dd3ca703a2b29b7fcbe8751f8f6893fd3b0463ae951633035363` |
+| `RF00001_5S_rRNA.cacofold.power` | `15421c4abcde831f0e1cdf430fe3fe108d852d5766df87fd256f3ac6beee7f8e` |
+| `RF00001_5S_rRNA.cacofold.helixcov` | `dec559d430b37cb0ab29acd66104985e6d3f2d90ec9ea6509a719a9a579417ec` |
+| `RF00005_tRNA.cacofold.cov` | `40f60256ee2a668816d450a02303bf03f85cb98bed42bc30c98ed446cfa8f782` |
+| `RF00005_tRNA.cacofold.power` | `febe5af3f7066f210b86ef3d8862fbe68dc887e1524287200241b33ecbb1bea7` |
+| `RF00005_tRNA.cacofold.helixcov` | `8e4d33b4bbd1c78d846f37873fdef2d32959f375d8b2feed5b44881406e71172` |
+
+The six CaCoFold numeric files are also stored under [supplementary/rscape/](../rscape/). The two alternative `.cacofold.sto` files are deliberately not redistributed because they contain the full Rfam seed sequences. The public [R-scape summary table](../tables/rscape_summary.csv) reports the corresponding alternative-structure pair counts.
+
 ## Interpretation limits
 
 R-scape tests covariation relative to a phylogenetic null expectation. It does not test the paired-versus-unpaired difference in mean single-site conservation. Estimated power is conditional on the method's simulation/model assumptions, not a posterior probability that a pair is real. A non-detected pair is not evidence that the pair is absent.

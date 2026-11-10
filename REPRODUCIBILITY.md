@@ -83,6 +83,8 @@ python -m src.compare_rscape_fr3d
 
 The source FR3D base-pair and stacking records are retained in `supplementary/structural/`. The pair-coordinate bridge is retained in `supplementary/tables/rscape_coordinate_mapping.csv`; the primary R-scape `.cov` and `.power` outputs and run provenance are under `supplementary/rscape/` and `supplementary/provenance/`. The resulting 82-row FR3D-reconciled table is `supplementary/tables/rscape_fr3d_structural_evidence.csv`.
 
+The primary and CaCoFold R-scape outputs, exact command, and checksums are indexed in [the R-scape provenance manifest](supplementary/provenance/rscape_run_manifest.md). To rerun R-scape 2.6.21, use the commands recorded there after downloading and checksum-verifying the original Rfam alignments. The alternative CaCoFold Stockholm files are not redistributed because they contain the full seed sequences.
+
 The R-scape coordinate bridge is an archived derived input built from the original Stockholm coordinates and primary R-scape outputs. The public package preserves it for inspection and downstream mapping; the core two-family pipeline does not regenerate that bridge automatically. Full method, coordinate conventions, source checksums, and interpretation boundaries are documented in [the structural supplementary methods](supplementary/rscape_fr3d_methods.md).
 
 ## Restricted mitochondrial tRNA-Phe(GAA) subset
