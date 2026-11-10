@@ -32,6 +32,15 @@ def main() -> None:
         raise FileNotFoundError("Official 9ZTL updated mmCIF is missing")
     shutil.copy2(cif_source, cif_input)
 
+    commit_check = subprocess.run(
+        ["git", "-C", str(args.fr3d_root), "rev-parse", "HEAD"],
+        capture_output=True, text=True, check=False,
+    )
+    actual_commit = commit_check.stdout.strip()
+    if commit_check.returncode != 0 or actual_commit != FR3D_COMMIT:
+        raise RuntimeError(
+            f"FR3D checkout must be pinned to {FR3D_COMMIT}; found {actual_commit or 'unknown'}"
+        )
     annotator = args.fr3d_root / "fr3d" / "classifiers" / "NA_pairwise_interactions.py"
     if not annotator.is_file():
         raise FileNotFoundError(annotator)
@@ -49,8 +58,13 @@ def main() -> None:
     result = subprocess.run(command, capture_output=True, text=True, check=False)
     log = ROOT / "supplementary" / "provenance" / "fr3d_9ztl_run.log"
     log.parent.mkdir(parents=True, exist_ok=True)
+    command_template = (
+        "python fr3d/classifiers/NA_pairwise_interactions.py "
+        "--input data/structures --output supplementary/structural "
+        "-c basepair,stacking --chain b,5 9ZTL"
+    )
     log.write_text(
-        "COMMAND: " + " ".join(command) + "\n\nSTDOUT:\n" + result.stdout
+        "COMMAND TEMPLATE: " + command_template + "\n\nSTDOUT:\n" + result.stdout
         + "\nSTDERR:\n" + result.stderr,
         encoding="utf-8",
     )
