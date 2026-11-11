@@ -46,7 +46,7 @@ The two 9ZTL molecular-context panels used in the extended report are not stored
 
 ## Data and software licensing
 
-The two Rfam 15.1 seed alignments in `data/raw/` are made available by Rfam under the CC0 1.0 Universal public-domain dedication. The software in `src/`, `scripts/`, and `tests/` is covered by the MIT license in this repository. That MIT license does not automatically apply to figures, derived research tables, manuscript text, PDB/mmCIF data, or other third-party material. See [LICENSE](LICENSE), the [Rfam reference note](data/provenance/rfam_reference_snapshot.md), and [REFERENCES.md](REFERENCES.md) for the relevant sources and attribution.
+The two Rfam 15.1 seed alignments in `data/raw/` are made available by Rfam under the CC0 1.0 Universal public-domain dedication. The software in `src/`, `scripts/`, and `tests/` is covered by the MIT license in this repository. The MIT license applies only to the analysis software; it does not automatically apply to figures, derived research tables, or manuscript text. Rfam seed data and PDB archive coordinates are available under CC0 1.0 according to their respective providers. The 9ZTL coordinate file is retrieved for local reproduction and is not redistributed here. No additional reuse license is asserted for the project-derived result tables and figures in this release; cite the repository and contact the author before reusing those materials beyond scholarly evaluation. See [LICENSE](LICENSE), the [Rfam reference note](data/provenance/rfam_reference_snapshot.md), the [RCSB PDB usage policy](https://www.rcsb.org/pages/usage-policy), and [REFERENCES.md](REFERENCES.md).
 
 ## Author and contact
 
