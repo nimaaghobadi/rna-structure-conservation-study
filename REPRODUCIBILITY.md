@@ -67,7 +67,7 @@ RNAalifold and R-scape use variation in the same alignments. Their results are c
 
 ## Optional 9ZTL mapping and FR3D comparison
 
-The residue-mapping workflow requires Infernal 1.1.5 (`cmalign`) on `PATH`. It retrieves the 9ZTL updated mmCIF and the official Rfam covariance models, then aligns the relevant deposited RNA chains to the RF00001 and RF00005 covariance models:
+The residue-mapping workflow requires Infernal 1.1.5 (`cmalign`) on `PATH`. It retrieves the 9ZTL updated mmCIF and the official Rfam covariance models, verifies their archived SHA-256 checksums, and aligns the relevant deposited RNA chains to the RF00001 and RF00005 covariance models:
 
 ```bash
 python -m src.map_rfam_cm_to_pdb
