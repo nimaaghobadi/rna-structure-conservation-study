@@ -1,6 +1,3 @@
-from pathlib import Path
-
-
 def test_primary_covariance_model_mapping_imports_its_helpers():
     from src.map_rfam_cm_to_pdb import FAMILIES, ROOT
 
