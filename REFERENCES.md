@@ -5,7 +5,6 @@ This list records the principal literature, databases, software, and structural 
 ## RNA sequence and structure conservation
 
 - Knies JL, Dang KK, Vision TJ, Hoffman NG, Swanstrom R, Burch CL. (2008). Compensatory evolution in RNA secondary structures increases substitution rate variation among sites. *Molecular Biology and Evolution*, 25(8), 1778–1787. https://doi.org/10.1093/molbev/msn130
-- Rivas E, Clements J, Eddy SR. (2017). A statistical test for conserved RNA structure shows lack of evidence for structure in lncRNAs. *Nature Methods*, 14, 45–48. https://doi.org/10.1038/nmeth.4066
 - Rivas E. (2021). Evolutionary conservation of RNA sequence and structure. *WIREs RNA*. https://doi.org/10.1002/wrna.1649
 
 ## Databases, alignments, and annotation
