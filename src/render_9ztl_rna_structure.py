@@ -25,6 +25,7 @@ CIF = ROOT / "data" / "structures" / "9ztl_updated.cif"
 EVIDENCE = ROOT / "supplementary" / "tables" / "rscape_fr3d_structural_evidence.csv"
 OUT = ROOT / "supplementary" / "figures"
 MANIFEST = ROOT / "supplementary" / "provenance" / "9ztl_pymol_render_manifest.json"
+CIF_SOURCE = "https://www.ebi.ac.uk/pdbe/static/entry/9ztl_updated.cif"
 EXPECTED_CIF_SHA256 = "4401a250c6881fee8bc1f688d7a559b724e7ab7b18bda7d057cf0ce80f14480e"
 EXPECTED_EVIDENCE_SHA256 = "5a5373fc5a4c39e185b6db71e7a639fa17b0bc926b8cacf939532f3fabb4b944"
 
@@ -150,7 +151,9 @@ def main():
     rows = read_evidence()
     manifest = {
         "pdb_id": "9ZTL",
+        "cif_source": CIF_SOURCE,
         "cif_sha256": sha256(CIF),
+        "evidence_table": "supplementary/tables/rscape_fr3d_structural_evidence.csv",
         "evidence_table_sha256": sha256(EVIDENCE),
         "pymol_version": cmd.get_version()[0],
         "pillow_version": PIL.__version__,
@@ -165,6 +168,19 @@ def main():
             "output_size_px": [2400, 1800],
         },
         "interpretation_limit": "Highlighted residues are endpoints of FR3D geometric annotations. The rendering does not depict inferred hydrogen bonds or establish interactions absent from FR3D output.",
+        "reference_outputs": [
+            {
+                "family": "5S rRNA",
+                "path": "supplementary/figures/9ztl_5s_rRNA_structural_context.png",
+                "sha256": "9e1fca6548d16a99a94b820e967c5cc16a39badf5fc4f07fbdbd8c770a051a1e",
+            },
+            {
+                "family": "P-site tRNA",
+                "path": "supplementary/figures/9ztl_tRNA_structural_context.png",
+                "sha256": "9ef90294ad9a341ef77ce1fac18393c7acc2063948342245d3b74c686ea42357",
+            },
+        ],
+        "distribution_note": "Reference PNGs are not committed; regenerate them with this script. Their original checksums are listed above.",
         "figures": [],
     }
     cmd.bg_color("white")
