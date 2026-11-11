@@ -24,7 +24,7 @@ The main comparison is descriptive. It summarizes single-column conservation and
 
 The 16-taxon mitochondrial tRNA-Phe(GAA) analysis applies only to that restricted locus. It is not an orthology claim for the full RF00005 family, and its single-site conservation contrast is sensitive to coverage and taxon composition.
 
-R-scape covariation, ViennaRNA predictions, and FR3D geometric annotations describe different kinds of evidence. They are not interchangeable and do not establish compensatory evolution or a causal mechanism. The TN93 inferential workflow is excluded because its convergence acceptance criteria were not met.
+R-scape covariation, ViennaRNA predictions, and FR3D geometric annotations describe different kinds of evidence. They are not interchangeable and do not establish compensatory evolution or a causal mechanism.
 
 ## Start with these files
 
