@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "family": "RF00005",
+  "locus": "vertebrate mitochondrial tRNA-Phe(GAA)",
+  "taxa_count": 16,
+  "decision": "high-confidence orthology is accepted for this restricted 16-species mitochondrial locus set only",
+  "validation": {
+    "exact_genbank_tRNA_feature_sequence_matches": 16,
+    "alignment_columns_44_46_contain_GAA": 16,
+    "full_mitogenomes_verified": 16,
+    "mitogenomes_with_22_annotated_tRNA_features": 16,
+    "mitogenomes_with_exactly_one_tRNA_Phe_feature": 16,
+    "mitogenomes_with_conserved_trnF_12S_trnV_16S_order": 16,
+    "explicit_genbank_anticodon_qualifiers_available": 3,
+    "explicit_qualifiers_matching_alignment_location": 3
+  },
+  "coordinate_bridge": {
+    "rf_model_positions": [33, 34, 35],
+    "stockholm_alignment_columns": [44, 45, 46],
+    "anticodon": "GAA",
+    "structural_reference": "9ZTL P-site tRNA chain 5, author residues 34-36",
+    "note": "Author residue numbering is not a fixed ungapped sequence index."
+  },
+  "sequence_identity": {
+    "minimum": 0.9705882352941176,
+    "mean": 0.9963235294117647,
+    "maximum": 1.0
+  },
+  "sequence_coverage": {
+    "minimum": 0.9852941176470589,
+    "mean": 0.9981750852514919,
+    "maximum": 1.0
+  },
+  "member_table": "../tables/trna_phe_locus_validation.csv",
+  "limitations": [
+    "The decision applies only to the restricted vertebrate mitochondrial tRNA-Phe(GAA) locus set, not to all RF00005 sequences.",
+    "The broad RF00005 seed remains a heterogeneous structural family, not a single orthologous locus.",
+    "No species-tree-aware evolutionary analysis is included.",
+    "The subset conservation contrast is sensitive to coverage and taxon composition."
+  ]
+}
