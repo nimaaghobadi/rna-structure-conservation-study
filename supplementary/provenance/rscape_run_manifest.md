@@ -51,7 +51,7 @@ The six primary R-scape files (`.cov`, `.power`, and `.helixcov` for each family
 | `RF00005_tRNA.cacofold.power` | `febe5af3f7066f210b86ef3d8862fbe68dc887e1524287200241b33ecbb1bea7` |
 | `RF00005_tRNA.cacofold.helixcov` | `8e4d33b4bbd1c78d846f37873fdef2d32959f375d8b2feed5b44881406e71172` |
 
-The six CaCoFold numeric files are also stored under [supplementary/rscape/](../rscape/). The two alternative `.cacofold.sto` files are deliberately not redistributed because they contain the full Rfam seed sequences. The public [R-scape summary table](../tables/rscape_summary.csv) reports the corresponding alternative-structure pair counts.
+The six CaCoFold numeric files are also stored under [supplementary/rscape/](../rscape/). The two alternative `.cacofold.sto` files are not stored separately because the corresponding seed alignments are already included; regenerate them with the documented command when needed. The public [R-scape summary table](../tables/rscape_summary.csv) reports the corresponding alternative-structure pair counts.
 
 ## Interpretation limits
 
