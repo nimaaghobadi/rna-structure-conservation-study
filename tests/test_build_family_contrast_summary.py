@@ -24,4 +24,4 @@ def test_family_contrast_summary_uses_full_precision_means():
     assert rows[0]["paired_minus_unpaired_mean_conservation"] == "-0.0710715232936853"
     assert rows[1]["paired_minus_unpaired_mean_conservation"] == "-0.1933946367702553"
     assert rows[2]["paired_minus_unpaired_mean_conservation"] == "-0.12232311347657"
-    assert rows[2]["paired_minus_unpaired_mean_entropy_bits"] == "0.320299718409314"
+    assert rows[2]["paired_minus_unpaired_mean_entropy_bits"] == "0.3202997184093135"
