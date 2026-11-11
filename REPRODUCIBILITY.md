@@ -110,4 +110,3 @@ The 16-taxon locus follow-up is documented through the accession-versioned valid
 - The tRNA-Phe follow-up applies only to one restricted mitochondrial locus.
 - R-scape covariation, ViennaRNA folding predictions, and FR3D geometric annotations answer different questions.
 - The analyses do not establish compensatory evolution, causation, a universal family-wide rule, or a new statistical method.
-- The retired TN93 inferential workflow is not part of the public results or reproduction instructions.
