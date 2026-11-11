@@ -25,8 +25,9 @@ The [family contrast table](tables/family_contrast_summary.csv) reports the pair
 - [R-scape coordinate bridge](tables/rscape_coordinate_mapping.csv) and [alignment-block/tRNA-stem summary](tables/rscape_alignment_block_summary.csv).
 - [Rfam covariance-model to 9ZTL residue map](tables/rfam_to_pdb_9ztl_cmalign.csv), [chain insertions/local ends](tables/9ztl_chain_insertions_and_local_ends.csv), and [mapping manifest](provenance/9ztl_cmalign_mapping_manifest.json).
 - [FR3D base-pair and stacking annotations](structural/), [FR3D manifest](provenance/fr3d_9ztl_manifest.json), and the [pair-level R-scape/FR3D comparison](tables/rscape_fr3d_structural_evidence.csv) with its [summary](tables/rscape_fr3d_evidence_summary.csv).
+- [PyMOL rendering script](../src/render_9ztl_rna_structure.py) and [render provenance](provenance/9ztl_pymol_render_manifest.json) for the optional molecular-context panels.
 
-The 9ZTL mmCIF is retrieved from PDBe and is not redistributed. FR3D annotations describe one deposited structure model; they are not universal interaction assignments for either RNA family. CaCoFold structures are exploratory predictions, not experimental validation. The alternative CaCoFold Stockholm files are not redistributed because they contain the complete seed alignments.
+The 9ZTL mmCIF is retrieved from PDBe and is not redistributed. FR3D annotations describe one deposited structure model; they are not universal interaction assignments for either RNA family. The optional PyMOL panels are regenerated locally rather than stored as binary assets in this repository. CaCoFold structures are exploratory predictions, not experimental validation. The alternative CaCoFold Stockholm files are not redistributed because they contain the complete seed alignments.
 
 ## ViennaRNA / RNAalifold
 
