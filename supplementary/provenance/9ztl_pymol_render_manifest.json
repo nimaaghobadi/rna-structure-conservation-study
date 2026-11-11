@@ -1,11 +1,14 @@
 {
   "pdb_id": "9ZTL",
-  "cif_source": "PDBe updated mmCIF, downloaded by src.map_rfam_cm_to_pdb.py",
+  "cif_source": "https://www.ebi.ac.uk/pdbe/static/entry/9ztl_updated.cif",
   "cif_sha256": "4401a250c6881fee8bc1f688d7a559b724e7ab7b18bda7d057cf0ce80f14480e",
   "evidence_table": "supplementary/tables/rscape_fr3d_structural_evidence.csv",
   "evidence_table_sha256": "5a5373fc5a4c39e185b6db71e7a639fa17b0bc926b8cacf939532f3fabb4b944",
   "renderer": "src/render_9ztl_rna_structure.py",
-  "reference_environment": {"pymol_version": "2.5.0", "pillow_version": "9.0.1"},
+  "reference_environment": {
+    "pymol_version": "2.5.0",
+    "pillow_version": "9.0.1"
+  },
   "rendering": "Target RNA cartoon with translucent nearby ribosomal context, FR3D-annotated residue-endpoint markers, and an in-panel legend",
   "rendering_settings": {
     "protein_context": "complete protein chains with atoms within 14 angstroms of the target RNA",
@@ -13,11 +16,24 @@
     "context_appearance": "muted gray cartoon with transparency",
     "camera": "oriented on target RNA; 3.5 angstrom zoom buffer",
     "endpoint_markers": "C1-prime atom spheres; FR3D residue sets kept disjoint",
-    "output_size_px": [2400, 1800]
+    "output_size_px": [
+      2400,
+      1800
+    ]
   },
   "reference_outputs": [
-    {"family": "5S rRNA", "chain": "b", "path": "supplementary/figures/9ztl_5s_rRNA_structural_context.png", "sha256": "9e1fca6548d16a99a94b820e967c5cc16a39badf5fc4f07fbdbd8c770a051a1e"},
-    {"family": "P-site tRNA", "chain": "5", "path": "supplementary/figures/9ztl_tRNA_structural_context.png", "sha256": "9ef90294ad9a341ef77ce1fac18393c7acc2063948342245d3b74c686ea42357"}
+    {
+      "family": "5S rRNA",
+      "chain": "b",
+      "path": "supplementary/figures/9ztl_5s_rRNA_structural_context.png",
+      "sha256": "9e1fca6548d16a99a94b820e967c5cc16a39badf5fc4f07fbdbd8c770a051a1e"
+    },
+    {
+      "family": "P-site tRNA",
+      "chain": "5",
+      "path": "supplementary/figures/9ztl_tRNA_structural_context.png",
+      "sha256": "9ef90294ad9a341ef77ce1fac18393c7acc2063948342245d3b74c686ea42357"
+    }
   ],
   "interpretation_limit": "Highlighted residues are endpoints of FR3D geometric annotations. The rendering does not depict inferred hydrogen bonds or establish interactions absent from FR3D output.",
   "distribution_note": "The reference PNGs are not committed in this repository. The renderer regenerates them from the pinned mmCIF and the public FR3D evidence table; output checksums are recorded above."
