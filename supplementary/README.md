@@ -1,31 +1,36 @@
-# Supplementary resources index
+# Supplementary resources
 
-This directory contains the machine-readable and method-level materials needed to inspect the optional locus and structural analyses without exposing internal development notes or the research manuscript.
+This directory contains the supporting tables, methods, and provenance records for the optional locus and structural analyses. These materials are separate from the primary paired/unpaired conservation comparison.
 
 ## Restricted mitochondrial tRNA-Phe(GAA) locus
 
-- [Supplementary methods](supplementary_methods.md): scope, validation and limitations for the 16-taxon locus subset.
-- [Locus validation table](tables/trna_phe_locus_validation.csv): accession-versioned public-record checks and gene-neighborhood validation.
+- [Supplementary methods](supplementary_methods.md): selection criteria, validation evidence, and limitations for the 16-taxon locus.
+- [Orthology acceptance record](provenance/trna_phe_orthology_acceptance.json): machine-readable summary of the evidence and its restricted scope.
+- [Locus validation table](tables/trna_phe_locus_validation.csv): accession-versioned checks of sequence identity, genome annotation, tRNA-Phe copy number, and local gene order.
 - [Per-column metrics](tables/trna_phe_column_metrics.csv) and [pair metrics](tables/trna_phe_pair_metrics.csv).
 - [Locus summary](tables/trna_phe_locus_summary.json) and [Bovidae representative sensitivity](tables/trna_phe_bovid_sensitivity.csv).
 - [Sensitivity figure](figures/trna_phe_locus_sensitivity.svg).
 
-The locus-specific subset is not generalized to all RF00005 tRNAs. Its paired-minus-unpaired conservation contrast is sensitive to coverage and taxon composition and is not phylogenetically corrected.
+The locus set is not generalized to all RF00005 tRNAs. Its paired-minus-unpaired conservation contrast changes under coverage and taxon-composition sensitivity checks; no phylogenetically corrected result is claimed.
 
-## R-scape, 9ZTL and FR3D structural context
+## Descriptive comparison between the two Rfam seeds
+
+The [family contrast table](tables/family_contrast_summary.csv) reports the paired-minus-unpaired conservation and entropy contrasts for each selected seed, together with the tRNA-minus-5S difference. These are descriptive arithmetic contrasts, not a formal family-level test.
+
+## R-scape, 9ZTL, and FR3D
 
 - [Methods and reproduction instructions](rscape_fr3d_methods.md).
-- [R-scape run provenance](provenance/rscape_run_manifest.md), the [family-level R-scape summary](tables/rscape_summary.csv), primary and CaCoFold `.cov`/`.power`/`.helixcov` outputs under [rscape/](rscape/), and the [alignment-block/tRNA-stem summary](tables/rscape_alignment_block_summary.csv).
-- [R-scape coordinate bridge](tables/rscape_coordinate_mapping.csv).
-- [Complete Rfam covariance-model to 9ZTL residue map](tables/rfam_to_pdb_9ztl_cmalign.csv), [chain insertions/local ends](tables/9ztl_chain_insertions_and_local_ends.csv), and [mapping manifest](provenance/9ztl_cmalign_mapping_manifest.json).
-- [FR3D source annotations](structural/) and [FR3D run manifest](provenance/fr3d_9ztl_manifest.json).
-- [Pair-level R-scape/FR3D evidence](tables/rscape_fr3d_structural_evidence.csv) and [summary](tables/rscape_fr3d_evidence_summary.csv).
+- [R-scape run provenance](provenance/rscape_run_manifest.md) and the [family-level summary](tables/rscape_summary.csv).
+- Primary and CaCoFold `.cov`, `.power`, and `.helixcov` outputs under [rscape/](rscape/).
+- [R-scape coordinate bridge](tables/rscape_coordinate_mapping.csv) and [alignment-block/tRNA-stem summary](tables/rscape_alignment_block_summary.csv).
+- [Rfam covariance-model to 9ZTL residue map](tables/rfam_to_pdb_9ztl_cmalign.csv), [chain insertions/local ends](tables/9ztl_chain_insertions_and_local_ends.csv), and [mapping manifest](provenance/9ztl_cmalign_mapping_manifest.json).
+- [FR3D base-pair and stacking annotations](structural/), [FR3D manifest](provenance/fr3d_9ztl_manifest.json), and the [pair-level R-scape/FR3D comparison](tables/rscape_fr3d_structural_evidence.csv) with its [summary](tables/rscape_fr3d_evidence_summary.csv).
 
-The deposited 9ZTL mmCIF is not redistributed. Its official source and checksum are recorded in the mapping manifest. FR3D annotations refer to one deposited structure model, not a universal RNA-family structure. CaCoFold outputs are computational alternative-structure predictions, not experimental validation; the alternative `.sto` files are not redistributed because they contain the complete Rfam seed sequences.
+The 9ZTL mmCIF is retrieved from PDBe and is not redistributed. FR3D annotations describe one deposited structure model; they are not universal interaction assignments for either RNA family. CaCoFold structures are exploratory predictions, not experimental validation. The alternative CaCoFold Stockholm files are not redistributed because they contain the complete seed alignments.
 
 ## ViennaRNA / RNAalifold
 
 - [Methods and results](viennarna_methods.md).
 - [Summary table](tables/viennarna_summary.csv), [pair-probability table](tables/viennarna_pair_probabilities.csv), and [run manifest](provenance/viennarna_manifest.json).
 
-ViennaRNA is an optional supplementary analysis. It is not independent of R-scape's sequence-covariation evidence and is not experimental validation.
+ViennaRNA provides comparative-folding predictions. It does not provide an independent experimental test of the R-scape results or of the paired/unpaired conservation contrast.
