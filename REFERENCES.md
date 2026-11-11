@@ -30,7 +30,7 @@ This list records the principal literature, databases, software, and structural 
 
 ## Structural data
 
-- Masse MM, Hutchinson RB, Morgan CE, et al. (2024). Mapping Protein-Protein Interactions at Birth: Single-Particle Cryo-EM Analysis of a Ribosome-Nascent Globin Complex. *ACS Central Science*. https://doi.org/10.1021/acscentsci.3c00777
+- Masse MM, Hutchinson RB, Morgan CE, Allaman HJ, Guan H, Yu EW, Cavagnero S. (2024). Mapping Protein-Protein Interactions at Birth: Single-Particle Cryo-EM Analysis of a Ribosome-Nascent Globin Complex. *ACS Central Science*, 10(2), 385–401. https://doi.org/10.1021/acscentsci.3c00777
 - RCSB Protein Data Bank. [9ZTL entry](https://www.rcsb.org/structure/9ZTL); PDB DOI: https://doi.org/10.2210/pdb9ZTL/pdb
 - Rfam. [9ZTL family-to-structure mapping](https://rfam.org/structure/9ztl/av).
 - PDBe. [Updated 9ZTL mmCIF](https://www.ebi.ac.uk/pdbe/entry-files/download/9ztl_updated.cif).
