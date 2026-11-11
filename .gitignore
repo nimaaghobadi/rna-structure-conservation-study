@@ -17,6 +17,7 @@ data/raw/*
 !data/raw/rf00001_seed.sto
 !data/raw/rf00005_seed.sto
 data/processed/
+data/structures/
 results/
 
 # Local editor and operating-system files
