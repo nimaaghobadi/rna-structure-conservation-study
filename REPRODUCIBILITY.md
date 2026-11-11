@@ -1,25 +1,31 @@
 # Reproduction guide
 
-## Scope and reproducibility boundary
+## What can be reproduced
 
-The public repository supports reproduction of the core descriptive analysis and its main figures from the exact Rfam 15.1 seed alignments. It also archives reader-facing intermediate data and selected workflows for the optional ViennaRNA and 9ZTL/FR3D structural-context analyses.
+The repository contains the exact Rfam 15.1 seed alignments, the core analysis code, the result tables used in the study, and scripts for regenerating the committed figures. The optional sections describe the additional ViennaRNA and 9ZTL/FR3D analyses.
 
-It is not a single-command rebuild of every historical analysis or every rendered asset. In particular, the repository does not redistribute the Rfam seed alignments or the 9ZTL mmCIF, and it does not claim that all external-tool analyses or 3D rendering are reproduced by the core pipeline.
+The package is deliberately explicit about its boundaries. It does not reproduce every historical exploratory analysis, and the 9ZTL mmCIF is retrieved from its official source rather than redistributed here. The tRNA-Phe subset is provided as accession-versioned validation and result tables; the public package does not rerun the complete NCBI candidate-search and curation process.
 
 ## Core environment
 
-Python 3.10 or newer is recommended. Install the dependencies in `requirements.txt`:
+Python 3.12 is the reference environment used for the archived core analysis. Install the dependencies from the repository root:
 
 ```bash
 python -m venv .venv
-# activate the environment for your operating system
+# Activate the environment for your operating system.
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 ```
 
-## Core analysis
+## Verify and run the core analysis
 
-From the repository root:
+The two exact Stockholm inputs are included in `data/raw/`. First verify their checksums:
+
+```bash
+sha256sum data/raw/rf00001_seed.sto data/raw/rf00005_seed.sto
+```
+
+Expected values are recorded in [data provenance](data/README.md). Then validate the files and run the descriptive analysis:
 
 ```bash
 python -m src.download_rfam
@@ -27,13 +33,13 @@ python -m src.run_analysis
 pytest -q
 ```
 
-The downloader retrieves the Rfam seed alignments into `data/raw/`. The analysis writes generated outputs under `results/`. The public repository intentionally does not commit duplicate raw seed alignments; retrieve them from the official Rfam endpoints and verify the SHA-256 checksums in [data provenance](data/README.md).
+The downloader checks the Stockholm format and the expected Rfam 15.1 SHA-256 values. If the family endpoint begins serving a different release, the script stops rather than silently replacing the study inputs. The versioned Rfam 15.1 archive is available at [the official release directory](https://ftp.ebi.ac.uk/pub/databases/Rfam/15.1/).
 
-The curated tables used for the public results are committed under `data/tables/`. These include per-column metrics, paired/unpaired summaries, pair composition, QC, coverage sensitivity, and sequence-redundancy sensitivity.
+The analysis writes fresh outputs under the ignored local `results/` directory. The curated result tables used by this public release are committed under `data/tables/`; compare regenerated values with those files rather than treating a new local run as an automatic update to the public tables.
 
-## Rebuild public figures
+## Regenerate the public figures
 
-The figure scripts use the committed public tables and write to `figures/` or `supplementary/figures/`:
+The figure scripts read the committed tables and write their outputs to `figures/` or `supplementary/figures/`:
 
 ```bash
 python scripts/plot_core_conservation_entropy.py
@@ -43,58 +49,54 @@ python scripts/plot_viennarna_pair_overlay.py
 python scripts/plot_tRNA_Phe_locus_sensitivity.py
 ```
 
-The core conservation/entropy and base-pair composition figures require only the core Python environment. The R-scape/FR3D and ViennaRNA figures use the committed supplementary tables; they do not rerun the external analyses.
+The core conservation/entropy and base-pair composition figures require only the core Python dependencies. The R-scape/FR3D and ViennaRNA figures use archived supplementary tables; they do not rerun the external analyses.
 
 ## Optional ViennaRNA / RNAalifold analysis
 
-The archived comparative-folding analysis used ViennaRNA 2.7.2. Install the optional dependency:
+The comparative-folding analysis used ViennaRNA 2.7.2. Install the optional dependency:
 
 ```bash
 python -m pip install -r requirements-optional.txt
-python -m src.download_rfam
 python -m src.run_viennarna_analysis
 python scripts/plot_viennarna_pair_overlay.py
 ```
 
-The script runs the full seed and deterministic 95% and 90% identity-reduced alignments for both families. It writes the summary and pair-probability tables to `supplementary/tables/` and the run manifest to `supplementary/provenance/`. Exact settings and interpretation limits are in [the ViennaRNA supplementary methods](supplementary/viennarna_methods.md).
+The analysis uses the full seed and deterministic 95% and 90% identity-reduced alignments. It writes the summary and pair-probability tables under `supplementary/tables/` and a manifest under `supplementary/provenance/`. See [the ViennaRNA methods](supplementary/viennarna_methods.md) for settings and interpretation limits.
 
-ViennaRNA covariance scoring uses the same alignment variation that underlies R-scape; these are complementary analyses, not independent replications. The predictions are not experimental validation.
+RNAalifold and R-scape use variation in the same alignments. Their results are complementary computational evidence, not independent replications or experimental validation.
 
-## Optional 9ZTL coordinate mapping and FR3D comparison
+## Optional 9ZTL mapping and FR3D comparison
 
-The structural-context workflow requires Infernal 1.1.5 (`cmalign`) on `PATH`, the core Python dependencies, and the external FR3D Python repository pinned to commit `494a81ccb024abda18fb4c62115a77c6df608472`.
-
-First retrieve the Rfam alignments, then run the official covariance-model mapping:
+The residue-mapping workflow requires Infernal 1.1.5 (`cmalign`) on `PATH`. It retrieves the 9ZTL updated mmCIF and the official Rfam covariance models, then aligns the relevant deposited RNA chains to the RF00001 and RF00005 covariance models:
 
 ```bash
-python -m src.download_rfam
 python -m src.map_rfam_cm_to_pdb
 python -m src.update_rscape_structure_coordinates
 ```
 
-The mapping script downloads the 9ZTL updated mmCIF from PDBe and the official RF00001/RF00005 covariance models from Rfam. The mmCIF is not redistributed; its source and SHA-256 are recorded in `supplementary/provenance/9ztl_cmalign_mapping_manifest.json`.
+The mmCIF is not redistributed. Its official PDBe source and SHA-256 checksum are recorded in [the mapping manifest](supplementary/provenance/9ztl_cmalign_mapping_manifest.json). The mapping uses separate label-chain and author-chain identifiers; see [the structural methods](supplementary/rscape_fr3d_methods.md).
 
-To regenerate FR3D interaction records, clone the pinned FR3D repository and run:
+To regenerate the FR3D geometric annotations, check out the [FR3D Python repository](https://github.com/BGSU-RNA/fr3d-python) at commit `494a81ccb024abda18fb4c62115a77c6df608472`, then run:
 
 ```bash
 python -m src.run_fr3d_annotation --fr3d-root /path/to/fr3d-python
 python -m src.compare_rscape_fr3d
 ```
 
-The source FR3D base-pair and stacking records are retained in `supplementary/structural/`. The pair-coordinate bridge is retained in `supplementary/tables/rscape_coordinate_mapping.csv`; the primary R-scape `.cov` and `.power` outputs and run provenance are under `supplementary/rscape/` and `supplementary/provenance/`. The resulting 82-row FR3D-reconciled table is `supplementary/tables/rscape_fr3d_structural_evidence.csv`.
+The archived FR3D base-pair and stacking records, R-scape outputs, coordinate bridge, and pair-level comparison are provided under `supplementary/`. The R-scape run settings and checksums are in [the run manifest](supplementary/provenance/rscape_run_manifest.md). The alternative CaCoFold Stockholm files are not redistributed because they contain the full seed alignments; they can be regenerated from the included Rfam inputs.
 
-The primary and CaCoFold R-scape outputs, exact command, and checksums are indexed in [the R-scape provenance manifest](supplementary/provenance/rscape_run_manifest.md). To rerun R-scape 2.6.21, use the commands recorded there after downloading and checksum-verifying the original Rfam alignments. The alternative CaCoFold Stockholm files are not redistributed because they contain the full seed sequences.
-
-The R-scape coordinate bridge is an archived derived input built from the original Stockholm coordinates and primary R-scape outputs. The public package preserves it for inspection and downstream mapping; the core two-family pipeline does not regenerate that bridge automatically. Full method, coordinate conventions, source checksums, and interpretation boundaries are documented in [the structural supplementary methods](supplementary/rscape_fr3d_methods.md).
+The CM mapping and FR3D comparison are optional structural-context analyses. They do not alter the core paired/unpaired conservation calculations and do not establish compensatory evolution.
 
 ## Restricted mitochondrial tRNA-Phe(GAA) subset
 
-The restricted 16-taxon locus analysis is represented by its accession-versioned validation table, per-column and pair metrics, summary JSON, Bovidae sensitivity table, and figure under `supplementary/`. The source nucleotide records remain hosted by NCBI and are identified in the validation table. This is a locus-specific descriptive subset, not orthology across all RF00005 and not a phylogenetically corrected analysis. See [the locus supplementary methods](supplementary/supplementary_methods.md).
+The 16-taxon locus follow-up is documented through the accession-versioned validation table, per-column and pair metrics, summary JSON, Bovidae sensitivity table, and [supplementary methods](supplementary/supplementary_methods.md). The public data preserve the exact record identifiers and the validation criteria. This is a locus-specific descriptive subset, not an orthology claim for all RF00005 sequences and not a phylogenetically corrected analysis.
 
-## What is not included or claimed
+## Interpretation limits
 
-- Raw Rfam seed alignments and the 9ZTL mmCIF are not redistributed; official sources and checksums are provided.
-- The public repository does not include the research manuscript, private status/decision logs, internal audits, failed experiments, or the retired TN93 inferential workflow.
-- The two 9ZTL molecular-context PNGs and the full PyMOL rendering workflow are not included in this public release. The public structural materials focus on residue mapping and FR3D evidence records rather than distributing a third-party coordinate file or making a 3D rendering pipeline claim.
-- Not every SVG can be regenerated from only `requirements.txt`; optional analyses require the additional tools listed above.
-- The paired-versus-unpaired results are descriptive. Alignment columns are not independent evolutionary replicates, and the public results do not establish compensatory evolution, causation, or a universal family-level rule.
+- Rfam seed alignments are curated representative sets, not random samples of all natural family members.
+- The paired/unpaired summaries are descriptive across alignment columns; the columns are not independent evolutionary replicates.
+- The two families differ in taxonomic composition, diversity, length, and curation.
+- The tRNA-Phe follow-up applies only to one restricted mitochondrial locus.
+- R-scape covariation, ViennaRNA folding predictions, and FR3D geometric annotations answer different questions.
+- The analyses do not establish compensatory evolution, causation, a universal family-wide rule, or a new statistical method.
+- The retired TN93 inferential workflow is not part of the public results or reproduction instructions.
