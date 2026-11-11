@@ -1,12 +1,12 @@
 # Public data dictionary
 
-This guide defines the fields and denominators used in the committed result tables. The core analysis uses the Rfam 15.1 RF00001 (5S rRNA) and RF00005 (tRNA) seed alignments. Raw Stockholm alignments are not redistributed; retrieve the official files and verify the checksums in [the data provenance guide](README.md).
+This guide defines the fields and denominators used in the committed result tables. The core analysis uses the Rfam 15.1 RF00001 (5S rRNA) and RF00005 (tRNA) seed alignments. The exact input files are included in `data/raw/`; their release, provenance, and checksums are recorded in [the Rfam reference note](provenance/rfam_reference_snapshot.md).
 
 ## Core tables: `data/tables/`
 
 ### `qc_summary.csv`
 
-One row per family. `n_sequences` and `alignment_length` describe the input alignment; `ss_cons_length` checks the consensus annotation length; `rf_annotation_present` records whether the Stockholm reference annotation is available. Gap and ambiguous counts/fractions are calculated over all sequence-by-column characters. `n_paired_columns`, `n_unpaired_columns`, `n_insertion_columns`, and `n_unknown_structure_columns` describe the structure-state classification. `n_coordinate_overlap_sequences` counts IDs flagged by the coordinate-overlap audit; these sequences remain in the primary analysis. `n_sequences_after_overlap_filter` is the remaining sequence count in the separate overlap sensitivity analysis. `accession`, `family`, and `raw_file` identify the source family and expected local input path.
+One row per family. `n_sequences` and `alignment_length` describe the input alignment; `ss_cons_length` checks the consensus annotation length; `rf_annotation_present` records whether the Stockholm reference annotation is available. Gap and ambiguous counts/fractions are calculated over all sequence-by-column characters. `n_paired_columns`, `n_unpaired_columns`, `n_insertion_columns`, and `n_unknown_structure_columns` describe the structure-state classification. `n_coordinate_overlap_sequences` counts IDs flagged by the coordinate-overlap audit; these sequences remain in the primary analysis. `n_sequences_after_overlap_filter` is the remaining sequence count in the separate overlap sensitivity analysis. `accession`, `family`, and `raw_file` identify the source family and input path.
 
 ### `per_column_metrics.csv`
 
@@ -48,6 +48,10 @@ One row per family, pooling the pair observations over all annotated consensus p
 
 - `sensitivity_by_validity.csv`: paired-minus-unpaired conservation after requiring minimum per-column valid fractions of 0.50, 0.70, or 0.90. The paired/unpaired column counts may change as the threshold changes.
 - `sequence_redundancy_sensitivity.csv`: full-seed summaries compared with deterministic greedy representative sets at 95% and 90% identity. Pairwise identity uses shared valid A/C/G/U columns and requires at least 50% overlap of the shorter valid sequence. This is a sensitivity analysis, not phylogenetic correction.
+
+### `family_contrast_summary.csv`
+
+One row per selected seed plus a `tRNA_minus_5S` arithmetic difference row. The conservation and entropy fields are paired-minus-unpaired differences calculated from the full-precision means in `conservation_by_structure.csv` and `entropy_by_structure.csv`. The final row subtracts the 5S contrast from the tRNA contrast. These values answer the comparison descriptively for the two selected seed alignments; they are not a family-level inferential test.
 
 ## Supplementary tables
 
