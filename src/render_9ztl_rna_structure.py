@@ -180,7 +180,7 @@ def main():
                 "sha256": "9ef90294ad9a341ef77ce1fac18393c7acc2063948342245d3b74c686ea42357",
             },
         ],
-        "distribution_note": "Reference PNGs are not committed; regenerate them with this script. Their original checksums are listed above.",
+        "distribution_note": "Reference PNGs are supplied with the manuscript rather than duplicated here; regenerate them with this script if needed. Their original checksums are listed above.",
         "figures": [],
     }
     cmd.bg_color("white")
