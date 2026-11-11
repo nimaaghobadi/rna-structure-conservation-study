@@ -19,6 +19,7 @@ A Rfam seed alignment is a curated representative sample of a family; it is not 
 - `tables/base_pair_metrics.csv`: observed nucleotide-pair counts and denominators for each annotated consensus pair.
 - `tables/base_pair_summary.csv`: family-level summaries of observed canonical and wobble pair composition.
 - `tables/sensitivity_by_validity.csv`: sensitivity to minimum per-column valid-base coverage.
+- `tables/coordinate_overlap_audit.csv` and `tables/coordinate_overlap_sensitivity.csv`: the nine RF00005 sequence IDs flagged by the inclusive coordinate-overlap screen and the effect of excluding them in a separate sensitivity analysis. All nine remain in the primary analysis.
 - `tables/sequence_redundancy_sensitivity.csv`: comparison with deterministic 95% and 90% identity-reduced representative sets.
 
 The [data dictionary](data_dictionary.md) defines each field and denominator. The [family contrast table](../supplementary/tables/family_contrast_summary.csv) records the descriptive paired-minus-unpaired contrasts and the difference between the two selected seeds.
