@@ -4,7 +4,7 @@
 
 The repository contains the exact Rfam 15.1 seed alignments, the core analysis code, the result tables used in the study, and scripts for regenerating the committed figures. The optional sections describe the additional ViennaRNA and 9ZTL/FR3D analyses.
 
-The package is deliberately explicit about its boundaries. It does not reproduce every historical exploratory analysis, and the 9ZTL mmCIF is retrieved from its official source rather than redistributed here. The tRNA-Phe subset is provided as accession-versioned validation and result tables; the public package does not rerun the complete NCBI candidate-search and curation process.
+These instructions cover the analyses represented in this repository, not every historical exploratory run. The 9ZTL mmCIF is retrieved from PDBe rather than redistributed. The tRNA-Phe subset is provided as accession-versioned validation and result tables; the full NCBI candidate-search and curation process is not rerun here.
 
 ## Core environment
 
