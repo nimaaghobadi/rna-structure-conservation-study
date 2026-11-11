@@ -21,6 +21,6 @@ The subset contains 42 paired and 29 explicitly unpaired alignment columns. Acro
 
 ## Data sources and limitations
 
-The accession.version identifiers in the validation table link to public NCBI nucleotide records. The underlying NCBI sequence records are not copied into this repository. Feature and anticodon-location interpretation follows the [DDBJ feature-table specification](https://www.ddbj.nig.ac.jp/ddbj/feature-table-e.html) and [ENA anticodon qualifier reference](https://www.ebi.ac.uk/ena/WebFeat/qualifiers/anticodon.html).
+The accession.version identifiers in the validation table identify the corresponding public NCBI nucleotide records. The underlying NCBI sequence records are not copied into this repository. Feature and anticodon-location interpretation follows the [DDBJ feature-table specification](https://www.ddbj.nig.ac.jp/ddbj/feature-table-e.html) and [ENA anticodon qualifier reference](https://www.ebi.ac.uk/ena/WebFeat/qualifiers/anticodon.html).
 
 No species-tree-aware evolutionary analysis is included. Conservation and base-pair composition alone do not establish compensatory evolution, causation, or functional constraint. The subset result must not be used to replace the broad RF00005 family summary.
