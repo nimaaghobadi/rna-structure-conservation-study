@@ -22,7 +22,7 @@ from pathlib import Path
 import pandas as pd
 from Bio import AlignIO
 
-from src.map_rfam_to_pdb import (
+from src.structure_mapping_utils import (
     ROOT, FAMILIES, extract_chain, load_cif, obtain_cif,
     best_seed_alignment,
 )
