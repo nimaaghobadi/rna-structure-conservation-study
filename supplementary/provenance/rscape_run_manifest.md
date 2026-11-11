@@ -26,6 +26,17 @@ R-scape -s --cacofold --seed 20261030 --outdir results/rscape/RF00005 data/raw/r
 
 The exact seed alignments are included under [data/raw/](../../data/raw/). The original family-endpoint URLs and release information are recorded in the [Rfam input manifest](../../data/provenance/rfam_seed_download_manifest.json).
 
+## R2R consensus-diagram outputs
+
+The two family consensus diagrams are the R2R SVG outputs generated during the pinned R-scape run. Their public paths differ from the original private workflow paths, but the SVG contents were checked and are identical to the source artifacts.
+
+| Public SVG | SHA-256 |
+|---|---|
+| `figures/5s_rrna_consensus.svg` | `74ae42f9bf12ad2179fc9fb9ba8c7751326dd905c0b16189bf7a6fc9360cdbdb` |
+| `figures/trna_consensus.svg` | `6c3879a53eb387a101a9cb19b3b71533dc081fa744402218ccde8b5e87a09411` |
+
+The diagrams show Rfam seed consensus annotations, not experimentally solved structures for every family member. R2R is cited in [REFERENCES.md](../../REFERENCES.md).
+
 ## Archived primary outputs
 
 | File | SHA-256 |
