@@ -85,7 +85,18 @@ python -m src.compare_rscape_fr3d
 
 The archived FR3D base-pair and stacking records, R-scape outputs, coordinate bridge, and pair-level comparison are provided under `supplementary/`. The R-scape run settings and checksums are in [the run manifest](supplementary/provenance/rscape_run_manifest.md). The alternative CaCoFold Stockholm files are not redistributed because they contain the full seed alignments; they can be regenerated from the included Rfam inputs.
 
-The CM mapping and FR3D comparison are optional structural-context analyses. They do not alter the core paired/unpaired conservation calculations and do not establish compensatory evolution.
+### Optional PyMOL structural-context figures
+
+The two 9ZTL molecular-context panels can be regenerated separately from the residue map and FR3D evidence. This step requires PyMOL 2.5.0 and Pillow 9.0.1. First run the 9ZTL mapping workflow above so that the checksum-verified mmCIF is present under the ignored local `data/structures/` directory. Then run from the repository root:
+
+```bash
+python -m pip install Pillow==9.0.1
+pymol -cq -r src/render_9ztl_rna_structure.py
+```
+
+The script checks the mmCIF and FR3D evidence-table checksums before rendering. It writes the PNGs under `supplementary/figures/` and updates [the rendering manifest](supplementary/provenance/9ztl_pymol_render_manifest.json). The reference PNGs are not committed; their checksums and rendering settings are recorded in that manifest. The renderer marks FR3D interaction endpoints only; it does not draw inferred hydrogen bonds.
+
+The CM mapping, FR3D comparison, and PyMOL panels provide structural context. They do not alter the core paired/unpaired conservation calculations and do not establish compensatory evolution.
 
 ## Restricted mitochondrial tRNA-Phe(GAA) subset
 
