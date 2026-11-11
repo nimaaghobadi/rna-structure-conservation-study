@@ -2,7 +2,7 @@
 
 This repository contains the data, analysis code, figures, and supplementary evidence for a descriptive comparison of paired and explicitly unpaired positions in two Rfam 15.1 RNA-family seed alignments: RF00001 (5S rRNA) and RF00005 (tRNA).
 
-The research manuscript is maintained separately. This repository is its reader- and reviewer-facing companion: it provides the materials needed to inspect the analyses and follow their data provenance without exposing internal development records.
+The manuscript is distributed separately. This repository contains the inputs, code, result tables, figures, and supplementary evidence needed to examine the analyses and trace their data provenance.
 
 ## What is here
 
