@@ -87,7 +87,7 @@ The archived FR3D base-pair and stacking records, R-scape outputs, coordinate br
 
 ### Optional PyMOL structural-context figures
 
-The two 9ZTL molecular-context panels can be regenerated separately from the residue map and FR3D evidence. This step requires PyMOL 2.5.0 and Pillow 9.0.1. First run the 9ZTL mapping workflow above so that the checksum-verified mmCIF is present under the ignored local `data/structures/` directory. Then run from the repository root:
+The two 9ZTL molecular-context panels can be regenerated separately from the residue map and FR3D evidence. This step requires PyMOL 2.5.0 (installed separately for your platform) and Pillow 9.0.1. On Linux, the DejaVu Sans font files used by the reference rendering should also be available. First run the 9ZTL mapping workflow above so that the checksum-verified mmCIF is present under the ignored local `data/structures/` directory. Then run from the repository root:
 
 ```bash
 python -m pip install Pillow==9.0.1
