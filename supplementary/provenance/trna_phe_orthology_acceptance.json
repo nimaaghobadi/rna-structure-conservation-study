@@ -12,11 +12,21 @@
     "mitogenomes_with_exactly_one_tRNA_Phe_feature": 16,
     "mitogenomes_with_conserved_trnF_12S_trnV_16S_order": 16,
     "explicit_genbank_anticodon_qualifiers_available": 3,
-    "explicit_qualifiers_matching_alignment_location": 3
+    "explicit_qualifiers_matching_alignment_location": 3,
+    "complete_mitogenomes_retrieved_by_taxid_search": 11,
+    "original_candidate_records_already_complete": 5
   },
   "coordinate_bridge": {
-    "rf_model_positions": [33, 34, 35],
-    "stockholm_alignment_columns": [44, 45, 46],
+    "rf_model_positions": [
+      33,
+      34,
+      35
+    ],
+    "stockholm_alignment_columns": [
+      44,
+      45,
+      46
+    ],
     "anticodon": "GAA",
     "structural_reference": "9ZTL P-site tRNA chain 5, author residues 34-36",
     "note": "Author residue numbering is not a fixed ungapped sequence index."
@@ -24,12 +34,12 @@
   "sequence_identity": {
     "minimum": 0.9705882352941176,
     "mean": 0.9963235294117647,
-    "maximum": 1.0
+    "maximum": 1
   },
   "sequence_coverage": {
     "minimum": 0.9852941176470589,
     "mean": 0.9981750852514919,
-    "maximum": 1.0
+    "maximum": 1
   },
   "member_table": "../tables/trna_phe_locus_validation.csv",
   "limitations": [
