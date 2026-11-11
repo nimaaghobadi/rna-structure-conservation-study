@@ -33,7 +33,7 @@ python -m src.run_analysis
 pytest -q
 ```
 
-The downloader checks the Stockholm format and the expected Rfam 15.1 SHA-256 values. If the family endpoint begins serving a different release, the script stops rather than silently replacing the study inputs. The versioned Rfam 15.1 archive is available at [the official release directory](https://ftp.ebi.ac.uk/pub/databases/Rfam/15.1/).
+The downloader checks the Stockholm format and the expected Rfam 15.1 SHA-256 values. If the family endpoint begins serving a different release, the script stops rather than silently replacing the study inputs. If the family endpoint changes, retrieve the Rfam 15.1 seed files from the [official Rfam downloads page](https://rfam.org/downloads) and verify them against the recorded checksums.
 
 The analysis writes fresh outputs under the ignored local `results/` directory. The curated result tables used by this public release are committed under `data/tables/`; compare regenerated values with those files rather than treating a new local run as an automatic update to the public tables.
 
