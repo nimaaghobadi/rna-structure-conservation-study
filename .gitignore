@@ -11,9 +11,11 @@ venv/
 .env
 .env.*
 
-# Downloaded upstream data and locally generated pipeline outputs.
-# Raw Rfam seed alignments and temporary analysis products are not committed.
-data/raw/
+# Temporary downloads and generated analysis products.
+# The two release-pinned Rfam seed inputs are intentionally tracked.
+data/raw/*
+!data/raw/rf00001_seed.sto
+!data/raw/rf00005_seed.sto
 data/processed/
 results/
 
