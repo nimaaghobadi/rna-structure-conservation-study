@@ -97,7 +97,7 @@ python -m pip install Pillow==9.0.1
 pymol -cq -r src/render_9ztl_rna_structure.py
 ```
 
-The script checks the mmCIF and FR3D evidence-table checksums before rendering. It writes the PNGs under `supplementary/figures/` and updates [the rendering manifest](supplementary/provenance/9ztl_pymol_render_manifest.json). The reference PNGs are not committed; their checksums and rendering settings are recorded in that manifest. The renderer marks FR3D interaction endpoints only; it does not draw inferred hydrogen bonds.
+The script checks the mmCIF and FR3D evidence-table checksums before rendering. It writes the PNGs under `supplementary/figures/` and updates [the rendering manifest](supplementary/provenance/9ztl_pymol_render_manifest.json). The panels are supplied with the manuscript rather than duplicated in this repository. The manifest records their reference checksums and rendering settings. The renderer marks FR3D interaction endpoints only; it does not draw inferred hydrogen bonds.
 
 The CM mapping, FR3D comparison, and PyMOL panels provide structural context. They do not alter the core paired/unpaired conservation calculations and do not establish compensatory evolution.
 
