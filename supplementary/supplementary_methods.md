@@ -2,7 +2,7 @@
 
 ## Scope and selection
 
-A targeted follow-up identified 16 vertebrate mitochondrial tRNA-Phe(GAA) candidates within the RF00005 seed and checked each candidate against an accession-versioned complete mitochondrial genome record. The accepted set is restricted to this one mitochondrial locus; it is not a claim that all RF00005 sequences, or all tRNA-Phe genes, are orthologous.
+A targeted follow-up assembled 16 vertebrate mitochondrial tRNA-Phe(GAA) records from the RF00005 seed and accession-versioned complete mitochondrial genome records. Eleven complete mitogenomes were retrieved in a taxid-based search; five candidate records already had complete mitogenomes available. The accepted set is restricted to this one mitochondrial locus; it is not a claim that all RF00005 sequences, or all tRNA-Phe genes, are orthologous.
 
 ## Validation criteria
 
