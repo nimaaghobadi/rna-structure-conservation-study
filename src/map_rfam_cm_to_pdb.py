@@ -28,6 +28,11 @@ from src.structure_mapping_utils import (
 )
 
 RFAM_RELEASE = "15.1"
+EXPECTED_CIF_SHA256 = "4401a250c6881fee8bc1f688d7a559b724e7ab7b18bda7d057cf0ce80f14480e"
+EXPECTED_CM_SHA256 = {
+    "RF00001": "390d717535fedd7d8c6a35e4a1c9f923fa5daa20b9926ced948fdc71bb8f9122",
+    "RF00005": "7698e524c9ae5b121186fe1e6608d7ab92bff31ef51e886186d7585a66090865",
+}
 
 
 def sha256(path: Path) -> str:
@@ -41,8 +46,16 @@ def sha256(path: Path) -> str:
 def get_cif() -> tuple[Path, str]:
     path = ROOT / "data" / "structures" / "9ztl_updated.cif"
     if path.is_file() and path.stat().st_size > 1_000_000:
-        return path, "cached PDBe updated mmCIF from official download"
-    return obtain_cif(None)
+        source = "cached PDBe updated mmCIF"
+    else:
+        path, source = obtain_cif(None)
+    observed = sha256(path)
+    if observed != EXPECTED_CIF_SHA256:
+        raise RuntimeError(
+            f"9ZTL mmCIF checksum mismatch: {observed}; "
+            f"expected {EXPECTED_CIF_SHA256}. Retrieve the pinned PDBe updated file."
+        )
+    return path, source
 
 
 def download_cm(accession: str) -> tuple[Path, str]:
@@ -59,6 +72,13 @@ def download_cm(accession: str) -> tuple[Path, str]:
         if b"INFERNAL1" not in payload[:200]:
             raise ValueError(f"Rfam CM endpoint did not return an Infernal model for {accession}")
         path.write_bytes(payload)
+    observed = sha256(path)
+    expected = EXPECTED_CM_SHA256[accession]
+    if observed != expected:
+        raise RuntimeError(
+            f"{accession} covariance-model checksum mismatch: {observed}; "
+            f"expected Rfam {RFAM_RELEASE} checksum {expected}."
+        )
     return path, url
 
 
