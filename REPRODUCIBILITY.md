@@ -30,6 +30,7 @@ Expected values are recorded in [data provenance](data/README.md). Then validate
 ```bash
 python -m src.download_rfam
 python -m src.run_analysis
+python scripts/build_family_contrast_summary.py
 pytest -q
 ```
 
