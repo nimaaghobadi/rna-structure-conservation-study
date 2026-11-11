@@ -114,3 +114,39 @@ def test_reused_seed_files_do_not_rewrite_unchanged_manifest(tmp_path, monkeypat
 
     assert result == previous
     assert manifest_path.read_text(encoding="utf-8") == original
+
+
+def test_release_checksum_mismatch_is_rejected(tmp_path, monkeypatch):
+    import src.download_rfam as downloader
+
+    raw = tmp_path / "raw"
+    processed = tmp_path / "processed"
+    raw.mkdir()
+    processed.mkdir()
+    monkeypatch.setattr(downloader, "RAW", raw)
+    monkeypatch.setattr(downloader, "PROCESSED", processed)
+    monkeypatch.setattr(
+        downloader,
+        "FAMILIES",
+        {
+            "RFTEST": {
+                "name": "test family",
+                "file": "test_seed.sto",
+                "sha256": "0" * 64,
+            }
+        },
+    )
+
+    data = (
+        "# STOCKHOLM 1.0\\n"
+        "#=GF ID demo\\n"
+        "seq1 AC-G\\n"
+        "seq2 ACUG\\n"
+        "#=GC SS_cons (..)\\n"
+        "#=GC RF ACGU\\n"
+        "//\\n"
+    ).encode()
+    (raw / "test_seed.sto").write_bytes(data)
+
+    with pytest.raises(RuntimeError, match="does not match the archived"):
+        download()
