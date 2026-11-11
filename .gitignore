@@ -18,6 +18,8 @@ data/raw/*
 !data/raw/rf00005_seed.sto
 data/processed/
 data/structures/
+supplementary/figures/9ztl_5s_rRNA_structural_context.png
+supplementary/figures/9ztl_tRNA_structural_context.png
 results/
 
 # Local editor and operating-system files
