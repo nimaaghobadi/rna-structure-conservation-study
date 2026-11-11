@@ -1,0 +1,4 @@
+family,n_sequences,n_paired_columns,n_unpaired_columns,paired_minus_unpaired_mean_conservation,paired_minus_unpaired_mean_entropy_bits
+5S rRNA,712,68,52,-0.0710715232936853,0.168086065240998
+tRNA,954,42,29,-0.1933946367702553,0.488385783650312
+tRNA_minus_5S,NA,NA,NA,-0.1223231134765700,0.320299718409314
