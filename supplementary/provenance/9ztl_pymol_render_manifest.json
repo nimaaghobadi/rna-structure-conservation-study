@@ -36,5 +36,5 @@
     }
   ],
   "interpretation_limit": "Highlighted residues are endpoints of FR3D geometric annotations. The rendering does not depict inferred hydrogen bonds or establish interactions absent from FR3D output.",
-  "distribution_note": "The reference PNGs are not committed in this repository. The renderer regenerates them from the pinned mmCIF and the public FR3D evidence table; output checksums are recorded above."
+  "distribution_note": "The reference PNGs are supplied with the manuscript rather than duplicated in this repository. The public renderer regenerates them from the pinned mmCIF and FR3D evidence table; reference output checksums are recorded above."
 }
