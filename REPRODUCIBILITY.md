@@ -51,6 +51,8 @@ python scripts/plot_tRNA_Phe_locus_sensitivity.py
 
 The core conservation/entropy and base-pair composition figures require only the core Python dependencies. The R-scape/FR3D and ViennaRNA figures use archived supplementary tables; they do not rerun the external analyses.
 
+The 5S rRNA and tRNA consensus diagrams are R2R vector outputs from the pinned R-scape run. Re-running the two R-scape commands in the [run manifest](supplementary/provenance/rscape_run_manifest.md) regenerates these diagrams from the included Stockholm inputs; the committed SVG files and their SHA-256 values are listed in that manifest.
+
 ## Optional ViennaRNA / RNAalifold analysis
 
 The comparative-folding analysis used ViennaRNA 2.7.2. Install the optional dependency:
