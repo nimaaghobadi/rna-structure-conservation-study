@@ -11,6 +11,7 @@ This list records the principal literature, databases, software, and structural 
 
 - Ontiveros-Palacios N, Cooke E, Nawrocki EP, et al. (2025). Rfam 15: RNA families database in 2025. *Nucleic Acids Research*, 53(D1), D258–D267. https://doi.org/10.1093/nar/gkae1023
 - Kalvari I, Argasinska J, Quinones-Olvera N, et al. (2018). Non-coding RNA analysis using the Rfam database. *Current Protocols in Bioinformatics*. https://doi.org/10.1002/cpbi.51
+- Rfam. [Release notes, including the January 2026 release 15.1](https://rfam.org/release-notes).
 - Rfam. [Downloads, release archive, and data reuse terms](https://rfam.org/downloads).
 - Rfam. [Definitions of sequence and structure statistics](https://rfam.org/static/documents/structure_statistics.pdf).
 - NCBI. [E-utilities documentation](https://www.ncbi.nlm.nih.gov/home/develop/api/).
