@@ -19,6 +19,7 @@ This list records the principal literature, databases, software, and structural 
 
 ## Software and methods
 
+- R-scape. [Version 2.6.21 release](https://github.com/EddyRivasLab/R-scape/releases/tag/v2.6.21).
 - Nawrocki EP, Eddy SR. (2013). Infernal 1.1: 100-fold faster RNA homology searches. *Bioinformatics*, 29(22), 2933–2935. https://doi.org/10.1093/bioinformatics/btt509
 - Rivas E, Clements J, Eddy SR. (2017). A statistical test for conserved RNA structure shows lack of evidence for structure in lncRNAs. *Nature Methods*, 14, 45–48. https://doi.org/10.1038/nmeth.4066
 - Lorenz R, Bernhart SH, Höner zu Siederdissen C, et al. (2011). ViennaRNA Package 2.0. *Algorithms for Molecular Biology*, 6, 26. https://doi.org/10.1186/1748-7188-6-26
