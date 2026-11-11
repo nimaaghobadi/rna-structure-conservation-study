@@ -66,7 +66,7 @@ One row per selected seed plus a `tRNA_minus_5S` arithmetic difference row. The 
 - `9ztl_chain_insertions_and_local_ends.csv`: chain insertions and local terminal regions outside the RF-model mapping.
 - `rscape_fr3d_structural_evidence.csv` and `rscape_fr3d_evidence_summary.csv`: pair-level and grouped comparison of R-scape candidates with FR3D annotations in one 9ZTL model. FR3D non-detection is not proof of absence.
 
-Primary and CaCoFold `.cov`, `.power`, and `.helixcov` files are archived in `supplementary/rscape/`. Alternative CaCoFold Stockholm files are not redistributed because they contain the full Rfam seed sequences.
+Primary and CaCoFold `.cov`, `.power`, and `.helixcov` files are archived in `supplementary/rscape/`. Alternative CaCoFold Stockholm outputs are not stored separately because the corresponding seed alignments are already included; regenerate them with the documented R-scape command.
 
 ### ViennaRNA / RNAalifold
 
