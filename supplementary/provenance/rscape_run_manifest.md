@@ -10,7 +10,7 @@
 
 ## Reproduction command
 
-After downloading the two Rfam seed Stockholm alignments from their official family endpoints and verifying the SHA-256 values below:
+Using the two included Rfam 15.1 Stockholm seed alignments after verifying the SHA-256 values below:
 
 ```bash
 R-scape -s --cacofold --seed 20261030 --outdir results/rscape/RF00001 data/raw/rf00001_seed.sto
@@ -24,7 +24,7 @@ R-scape -s --cacofold --seed 20261030 --outdir results/rscape/RF00005 data/raw/r
 | 5S rRNA | RF00001 | 712 × 230 | `18f91da6b0d9a668caf3d50849db437584140923e5477f7b21ed59453100f77c` |
 | tRNA | RF00005 | 954 × 118 | `d1a66517066e6d4fbad3bd382934406df3018ff9bdaf72f22732f4c9740c9505` |
 
-The raw seed alignments are not redistributed in this repository; download them from [Rfam](https://rfam.org/downloads) and verify these checksums.
+The exact seed alignments are included under [data/raw/](../../data/raw/). The original family-endpoint URLs and release information are recorded in the [Rfam input manifest](../../data/provenance/rfam_seed_download_manifest.json).
 
 ## Archived primary outputs
 
