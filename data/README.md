@@ -4,8 +4,8 @@ The primary analysis uses the exact Rfam 15.1 seed alignments for RF00001 (5S rR
 
 | Family | Rfam accession | Sequences | Alignment columns | File | SHA-256 |
 |---|---|---:|---:|---|---|
-| 5S rRNA | RF00001 | 712 | 230 | `rf00001_seed.sto` | `18f91da6b0d9a668caf3d50849db437584140923e5477f7b21ed59453100f77c` |
-| tRNA | RF00005 | 954 | 118 | `rf00005_seed.sto` | `d1a66517066e6d4fbad3bd382934406df3018ff9bdaf72f22732f4c9740c9505` |
+| 5S rRNA | RF00001 | 712 | 230 | [rf00001_seed.sto](raw/rf00001_seed.sto) | `18f91da6b0d9a668caf3d50849db437584140923e5477f7b21ed59453100f77c` |
+| tRNA | RF00005 | 954 | 118 | [rf00005_seed.sto](raw/rf00005_seed.sto) | `d1a66517066e6d4fbad3bd382934406df3018ff9bdaf72f22732f4c9740c9505` |
 
 The files were retrieved on 30 October 2026 from the official Rfam family-alignment endpoints. Rfam 15.1 was the release identified on the official downloads page at that time. The [machine-readable download manifest](provenance/rfam_seed_download_manifest.json) records file sizes, checksums, Stockholm validation, and source URLs. The [release-specific reference note](provenance/rfam_reference_snapshot.md) explains the Rfam statistics that are relevant to interpreting this study.
 
