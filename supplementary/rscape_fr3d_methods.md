@@ -42,7 +42,7 @@ These categories describe annotations in the selected 9ZTL model. A pair not det
 
 ## Reproduction commands
 
-The Rfam seed alignments are first downloaded using the core downloader. Install Infernal 1.1.5 (`cmalign`) and make it available on `PATH`. Then run:
+The included Rfam seed alignments are first checked with the core downloader. Install Infernal 1.1.5 (`cmalign`) and make it available on `PATH`. Then run:
 
 ```bash
 python -m src.download_rfam
