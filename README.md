@@ -13,7 +13,7 @@ The manuscript is distributed separately. This repository contains the inputs, c
 - `src/`: the core downloader and analysis code, plus optional ViennaRNA and 9ZTL/FR3D workflows.
 - `scripts/`: scripts that regenerate the committed figures from the public result tables.
 - `supplementary/`: the restricted mitochondrial tRNA-Phe(GAA) locus analysis, R-scape outputs, 9ZTL coordinate mapping, FR3D records, ViennaRNA results, and supporting methods.
-- `tests/`: focused tests for the core calculations, Stockholm parsing, downloading, and figure generation.
+- `tests/`: focused tests for the core calculations, Stockholm parsing, downloading, structural-mapping imports, and figure generation.
 - `REPRODUCIBILITY.md`: installation and reproduction instructions.
 - `REFERENCES.md`: selected literature, database, software, and structure references.
 - `CITATION.cff`: citation metadata for this repository.
@@ -42,7 +42,7 @@ R-scape covariation, ViennaRNA predictions, and FR3D geometric annotations descr
 - [ViennaRNA/RNAalifold comparison](figures/viennarna_consensus_comparison.svg)
 - [Restricted mitochondrial tRNA-Phe(GAA) sensitivity](supplementary/figures/trna_phe_locus_sensitivity.svg)
 
-The two 9ZTL molecular-context panels used in the extended report are not stored as binary images in this repository. Their renderer, input checksums, rendering settings, and expected output checksums are provided in the [supplementary index](supplementary/README.md) and [render manifest](supplementary/provenance/9ztl_pymol_render_manifest.json).
+The optional 9ZTL molecular-context panels are not stored as binary images in this repository. Their renderer, input checksums, rendering settings, and expected output checksums are provided in the [supplementary index](supplementary/README.md) and [render manifest](supplementary/provenance/9ztl_pymol_render_manifest.json).
 
 ## Data and software licensing
 
