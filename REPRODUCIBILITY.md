@@ -83,7 +83,7 @@ python -m src.run_fr3d_annotation --fr3d-root /path/to/fr3d-python
 python -m src.compare_rscape_fr3d
 ```
 
-The archived FR3D base-pair and stacking records, R-scape outputs, coordinate bridge, and pair-level comparison are provided under `supplementary/`. The R-scape run settings and checksums are in [the run manifest](supplementary/provenance/rscape_run_manifest.md). The alternative CaCoFold Stockholm files are not redistributed because they contain the full seed alignments; they can be regenerated from the included Rfam inputs.
+The archived FR3D base-pair and stacking records, R-scape outputs, coordinate bridge, and pair-level comparison are provided under `supplementary/`. The R-scape run settings and checksums are in [the run manifest](supplementary/provenance/rscape_run_manifest.md). The alternative CaCoFold Stockholm files are not stored separately, to avoid keeping a second copy of the included seed sequences. Regenerate them with the documented R-scape command when their predicted structures need inspection.
 
 ### Optional PyMOL structural-context figures
 
