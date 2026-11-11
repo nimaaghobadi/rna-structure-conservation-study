@@ -28,6 +28,7 @@ from src.structure_mapping_utils import (
 )
 
 RFAM_RELEASE = "15.1"
+CIF_URL = "https://www.ebi.ac.uk/pdbe/static/entry/9ztl_updated.cif"
 EXPECTED_CIF_SHA256 = "4401a250c6881fee8bc1f688d7a559b724e7ab7b18bda7d057cf0ce80f14480e"
 EXPECTED_CM_SHA256 = {
     "RF00001": "390d717535fedd7d8c6a35e4a1c9f923fa5daa20b9926ced948fdc71bb8f9122",
@@ -46,7 +47,7 @@ def sha256(path: Path) -> str:
 def get_cif() -> tuple[Path, str]:
     path = ROOT / "data" / "structures" / "9ztl_updated.cif"
     if path.is_file() and path.stat().st_size > 1_000_000:
-        source = "cached PDBe updated mmCIF"
+        source = CIF_URL
     else:
         path, source = obtain_cif(None)
     observed = sha256(path)
