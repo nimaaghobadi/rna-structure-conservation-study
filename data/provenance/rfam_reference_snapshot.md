@@ -11,7 +11,7 @@ The two alignments used in this study are the Rfam 15.1 seed alignments for 5S r
 
 The checksums are repeated in the [download manifest](rfam_seed_download_manifest.json). They identify the exact input files; a later Rfam release or a curator-updated alignment must not be substituted without treating it as a different dataset.
 
-Rfam describes a seed alignment as a curated representative set used to build a family covariance model. It is not the complete set of known family members. The current Rfam release and archived releases are available from the [official downloads page](https://rfam.org/downloads).
+Rfam describes a seed alignment as a curated representative set used to build a family covariance model. It is not the complete set of known family members. The [Rfam release notes](https://rfam.org/release-notes) identify 15.1 as the January 2026 release; the [downloads page](https://rfam.org/downloads) provides the current files and release archive.
 
 ## Definitions relevant to this analysis
 
