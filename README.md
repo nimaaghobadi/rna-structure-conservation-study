@@ -42,6 +42,8 @@ R-scape covariation, ViennaRNA predictions, and FR3D geometric annotations descr
 - [ViennaRNA/RNAalifold comparison](figures/viennarna_consensus_comparison.svg)
 - [Restricted mitochondrial tRNA-Phe(GAA) sensitivity](supplementary/figures/trna_phe_locus_sensitivity.svg)
 
+The two 9ZTL molecular-context panels used in the extended report are not stored as binary images in this repository. Their renderer, input checksums, rendering settings, and expected output checksums are provided in the [supplementary index](supplementary/README.md) and [render manifest](supplementary/provenance/9ztl_pymol_render_manifest.json).
+
 ## Data and software licensing
 
 The two Rfam 15.1 seed alignments in `data/raw/` are made available by Rfam under the CC0 1.0 Universal public-domain dedication. The software in `src/`, `scripts/`, and `tests/` is covered by the MIT license in this repository. That MIT license does not automatically apply to figures, derived research tables, manuscript text, PDB/mmCIF data, or other third-party material. See [LICENSE](LICENSE), the [Rfam reference note](data/provenance/rfam_reference_snapshot.md), and [REFERENCES.md](REFERENCES.md) for the relevant sources and attribution.
