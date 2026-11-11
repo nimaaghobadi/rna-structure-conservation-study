@@ -17,7 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 RAW = ROOT / "data" / "raw"
 PROCESSED = ROOT / "data" / "processed"
 RFAM_RELEASE = "15.1"
-RFAM_ARCHIVE_URL = "https://ftp.ebi.ac.uk/pub/databases/Rfam/15.1/Rfam.seed.gz"
+RFAM_ARCHIVE_URL = "https://rfam.org/downloads"
 FAMILIES = {
     "RF00001": {"name": "5S rRNA", "file": "rf00001_seed.sto", "sha256": "18f91da6b0d9a668caf3d50849db437584140923e5477f7b21ed59453100f77c"},
     "RF00005": {"name": "tRNA", "file": "rf00005_seed.sto", "sha256": "d1a66517066e6d4fbad3bd382934406df3018ff9bdaf72f22732f4c9740c9505"},
@@ -152,7 +152,7 @@ def download(force: bool = False) -> dict:
                 f"{accession}: SHA-256 {checksum} does not match the archived "
                 f"Rfam {RFAM_RELEASE} seed ({expected_checksum}). The family endpoint "
                 f"may have moved to a different release; retrieve the pinned release "
-                f"from {RFAM_ARCHIVE_URL} and verify its extracted family block."
+                f"from the Rfam 15.1 release archive linked there and verify its SHA-256 value."
             )
         previous_family = previous_families.get(accession, {})
         if (
