@@ -3,7 +3,7 @@
   "license": "CC0-1.0",
   "retrieved_at_utc": "2026-10-30T12:05:14.498863+00:00",
   "source": "Official Rfam family alignment endpoints",
-  "release_archive": "https://ftp.ebi.ac.uk/pub/databases/Rfam/15.1/",
+  "release_archive": "https://rfam.org/downloads",
   "families": {
     "RF00001": {
       "name": "5S rRNA",
@@ -16,7 +16,11 @@
         "alignment_length": 230,
         "ss_cons_length": 230,
         "rf_annotation_present": true,
-        "wuss_validation": {"length": 230, "paired_positions": 68, "unpaired_positions": 162}
+        "wuss_validation": {
+          "length": 230,
+          "paired_positions": 68,
+          "unpaired_positions": 162
+        }
       }
     },
     "RF00005": {
@@ -30,7 +34,11 @@
         "alignment_length": 118,
         "ss_cons_length": 118,
         "rf_annotation_present": true,
-        "wuss_validation": {"length": 118, "paired_positions": 42, "unpaired_positions": 76}
+        "wuss_validation": {
+          "length": 118,
+          "paired_positions": 42,
+          "unpaired_positions": 76
+        }
       }
     }
   }
