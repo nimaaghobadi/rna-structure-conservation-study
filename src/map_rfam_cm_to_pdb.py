@@ -5,7 +5,7 @@ deposited chain sequence to the family CM; the cmalign Stockholm RF annotation
 distinguishes model match positions from insertions and local ends.
 
 Requires Infernal (cmalign) on PATH. The 9ZTL mmCIF and chain extraction helpers
-are shared with src.map_rfam_to_pdb.
+are provided by src.structure_mapping_utils.
 
 Run:
     python -m src.map_rfam_cm_to_pdb
