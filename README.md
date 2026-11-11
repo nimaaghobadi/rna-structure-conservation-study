@@ -11,9 +11,9 @@ The manuscript is distributed separately. This repository contains the inputs, c
 - `data/provenance/`: the seed-download manifest and a release-specific reference note, including SHA-256 checksums.
 - `figures/`: the main paired/unpaired comparison, observed base-pair composition, family consensus diagrams, R-scape/FR3D evidence, and ViennaRNA comparison.
 - `src/`: the core downloader and analysis code, plus optional ViennaRNA and 9ZTL/FR3D workflows.
-- `scripts/`: scripts that regenerate the committed figures from the public result tables.
+- `scripts/`: scripts that regenerate the committed figures and the derived family-contrast summary table.
 - `supplementary/`: the restricted mitochondrial tRNA-Phe(GAA) locus analysis, R-scape outputs, 9ZTL coordinate mapping, FR3D records, ViennaRNA results, and supporting methods.
-- `tests/`: focused tests for the core calculations, Stockholm parsing, downloading, structural-mapping imports, and figure generation.
+- `tests/`: focused tests for the core calculations, Stockholm parsing, downloading, structural-mapping imports, figure generation, and the derived family-contrast calculation.
 - `REPRODUCIBILITY.md`: installation and reproduction instructions.
 - `REFERENCES.md`: selected literature, database, software, and structure references.
 - `CITATION.cff`: citation metadata for this repository.
