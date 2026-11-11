@@ -70,4 +70,4 @@ The coordinate bridge table and primary R-scape `.cov`/`.power` outputs are arch
 
 ## Structural source
 
-The deposited structural reference is [PDB 9ZTL](https://doi.org/10.2210/pdb9ZTL/pdb). The mmCIF coordinate file is not redistributed here; its official source and checksum are recorded in the mapping manifest. FR3D methodology is described by Sarver et al. (2008), and Rfam/Infernal/R-scape references are listed in [REFERENCES.md](../REFERENCES.md).
+The deposited structural reference is [PDB 9ZTL](https://doi.org/10.2210/pdb9ZTL/pdb), an *Escherichia coli* ribosome model. The entry's 2026 correction and current coordinate-file provenance are identified in [REFERENCES.md](../REFERENCES.md) and the mapping manifest. The mmCIF coordinate file is retrieved from PDBe for local reproduction and is not redistributed here. FR3D methodology is described by Sarver et al. (2008); Rfam, Infernal, R-scape, and PyMOL references are listed in [REFERENCES.md](../REFERENCES.md).
