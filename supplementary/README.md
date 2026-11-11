@@ -27,7 +27,7 @@ The [family contrast table](tables/family_contrast_summary.csv) reports the pair
 - [FR3D base-pair and stacking annotations](structural/), [FR3D manifest](provenance/fr3d_9ztl_manifest.json), and the [pair-level R-scape/FR3D comparison](tables/rscape_fr3d_structural_evidence.csv) with its [summary](tables/rscape_fr3d_evidence_summary.csv).
 - [PyMOL rendering script](../src/render_9ztl_rna_structure.py) and [render provenance](provenance/9ztl_pymol_render_manifest.json) for the optional molecular-context panels.
 
-The 9ZTL mmCIF is retrieved from PDBe and is not redistributed. FR3D annotations describe one deposited structure model; they are not universal interaction assignments for either RNA family. The optional PyMOL panels are regenerated locally rather than stored as binary assets in this repository. CaCoFold structures are exploratory predictions, not experimental validation. The alternative CaCoFold Stockholm outputs are not stored separately because the corresponding seed alignments are already included; regenerate them with the documented R-scape command when needed.
+The 9ZTL mmCIF is retrieved from PDBe and is not redistributed. FR3D annotations describe one deposited structure model; they are not universal interaction assignments for either RNA family. The PyMOL panels are supplied with the manuscript rather than duplicated as binary assets in this repository; the renderer and provenance are retained here for independent reproduction. CaCoFold structures are exploratory predictions, not experimental validation. The alternative CaCoFold Stockholm outputs are not stored separately because the corresponding seed alignments are already included; regenerate them with the documented R-scape command when needed.
 
 ## ViennaRNA / RNAalifold
 
