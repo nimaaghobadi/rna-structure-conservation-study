@@ -1,6 +1,9 @@
 {
+  "rfam_release": "15.1",
+  "license": "CC0-1.0",
   "retrieved_at_utc": "2026-10-30T12:05:14.498863+00:00",
-  "source": "Official Rfam family alignment endpoint",
+  "source": "Official Rfam family alignment endpoints",
+  "release_archive": "https://ftp.ebi.ac.uk/pub/databases/Rfam/15.1/",
   "families": {
     "RF00001": {
       "name": "5S rRNA",
@@ -8,20 +11,12 @@
       "url": "https://rfam.org/family/RF00001/alignment",
       "sha256": "18f91da6b0d9a668caf3d50849db437584140923e5477f7b21ed59453100f77c",
       "bytes": 203401,
-      "action": "existing_file_reused",
-      "stockholm_header": "# STOCKHOLM 1.0\n#=GF ID 5S_rRNA\n#=GF AC RF00001\n#=GF DE 5S ribosomal RNA\n#=GF AU Gardner PP; 0000-0002-7808-1213\n#=GF GA 38.0\n#=GF NC 37.9\n#=GF TC 38.0\n#=GF SE Szymanski et al, 5S ribosomal database, ",
-      "response_content_type": null,
-      "final_url": null,
       "validation": {
         "n_sequences": 712,
         "alignment_length": 230,
         "ss_cons_length": 230,
         "rf_annotation_present": true,
-        "wuss_validation": {
-          "length": 230,
-          "paired_positions": 68,
-          "unpaired_positions": 162
-        }
+        "wuss_validation": {"length": 230, "paired_positions": 68, "unpaired_positions": 162}
       }
     },
     "RF00005": {
@@ -30,20 +25,12 @@
       "url": "https://rfam.org/family/RF00005/alignment",
       "sha256": "d1a66517066e6d4fbad3bd382934406df3018ff9bdaf72f22732f4c9740c9505",
       "bytes": 141273,
-      "action": "existing_file_reused",
-      "stockholm_header": "# STOCKHOLM 1.0\n#=GF ID tRNA\n#=GF AC RF00005\n#=GF DE tRNA\n#=GF AU Mifsud W; 0000-0002-9805-6461\n#=GF GA 29.0\n#=GF NC 28.9\n#=GF TC 29.0\n#=GF SE Eddy SR\n#=GF SS Published; PMID:8256282\n#=GF TP Gene; tRN",
-      "response_content_type": null,
-      "final_url": null,
       "validation": {
         "n_sequences": 954,
         "alignment_length": 118,
         "ss_cons_length": 118,
         "rf_annotation_present": true,
-        "wuss_validation": {
-          "length": 118,
-          "paired_positions": 42,
-          "unpaired_positions": 76
-        }
+        "wuss_validation": {"length": 118, "paired_positions": 42, "unpaired_positions": 76}
       }
     }
   }
