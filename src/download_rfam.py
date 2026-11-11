@@ -16,9 +16,11 @@ from src.stockholm import validate_wuss
 ROOT = Path(__file__).resolve().parents[1]
 RAW = ROOT / "data" / "raw"
 PROCESSED = ROOT / "data" / "processed"
+RFAM_RELEASE = "15.1"
+RFAM_ARCHIVE_URL = "https://ftp.ebi.ac.uk/pub/databases/Rfam/15.1/Rfam.seed.gz"
 FAMILIES = {
-    "RF00001": {"name": "5S rRNA", "file": "rf00001_seed.sto"},
-    "RF00005": {"name": "tRNA", "file": "rf00005_seed.sto"},
+    "RF00001": {"name": "5S rRNA", "file": "rf00001_seed.sto", "sha256": "18f91da6b0d9a668caf3d50849db437584140923e5477f7b21ed59453100f77c"},
+    "RF00005": {"name": "tRNA", "file": "rf00005_seed.sto", "sha256": "d1a66517066e6d4fbad3bd382934406df3018ff9bdaf72f22732f4c9740c9505"},
 }
 
 
@@ -106,13 +108,15 @@ def download(force: bool = False) -> dict:
     )
     manifest = {
         "retrieved_at_utc": retrieved_at or datetime.now(timezone.utc).isoformat(),
-        "source": "Official Rfam family alignment endpoint",
+        "rfam_release": RFAM_RELEASE,
+        "source": "Official Rfam 15.1 family alignment endpoints",
         "families": {},
     }
     downloaded_any = False
     all_reused_unchanged = (
         previous_manifest is not None
         and not force
+        and previous_manifest.get("rfam_release", RFAM_RELEASE) == RFAM_RELEASE
         and set(previous_families) == set(FAMILIES)
     )
 
@@ -142,6 +146,14 @@ def download(force: bool = False) -> dict:
         # Validate both new downloads and reused local files before accepting them.
         qc = validate_stockholm_bytes(data, accession)
         checksum = sha256(data)
+        expected_checksum = info.get("sha256")
+        if expected_checksum and checksum != expected_checksum:
+            raise RuntimeError(
+                f"{accession}: SHA-256 {checksum} does not match the archived "
+                f"Rfam {RFAM_RELEASE} seed ({expected_checksum}). The family endpoint "
+                f"may have moved to a different release; retrieve the pinned release "
+                f"from {RFAM_ARCHIVE_URL} and verify its extracted family block."
+            )
         previous_family = previous_families.get(accession, {})
         if (
             action == "existing_file_reused"
