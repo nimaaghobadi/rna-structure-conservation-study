@@ -27,7 +27,7 @@ The summary and pair-level probability outputs are available as [viennarna_summa
 
 ## Reproduction
 
-Install the optional dependency pinned in [requirements-optional.txt](../requirements-optional.txt), download and verify the Rfam seed alignments, and run:
+Install the optional dependency pinned in [requirements-optional.txt](../requirements-optional.txt), verify the included Rfam seed alignments, and run:
 
 ```bash
 python -m src.download_rfam
