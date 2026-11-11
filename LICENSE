@@ -17,6 +17,8 @@ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
 
 SCOPE: This license applies to software source code in src/, scripts/, and
-tests/ only. It does not license the manuscript text, figures, Rfam data,
-PDB/mmCIF structural data, or third-party resources. Those remain subject to
-their respective copyright and reuse terms.
+tests/ only. The two Rfam 15.1 seed alignments in data/raw/ are provided under
+the CC0 1.0 terms stated by Rfam, not under this MIT license. This license does
+not apply to manuscript text, figures, derived research tables, PDB/mmCIF
+structural data, or other third-party resources; consult their respective
+sources and reuse terms.
