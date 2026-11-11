@@ -47,6 +47,8 @@ One row per family, pooling the pair observations over all annotated consensus p
 ### Sensitivity tables
 
 - `sensitivity_by_validity.csv`: paired-minus-unpaired conservation after requiring minimum per-column valid fractions of 0.50, 0.70, or 0.90. The paired/unpaired column counts may change as the threshold changes.
+- `coordinate_overlap_audit.csv`: one row per sequence flagged by the inclusive coordinate-overlap screen, grouped by accession. The records are retained in the primary analysis.
+- `coordinate_overlap_sensitivity.csv`: paired/unpaired mean conservation and canonical/wobble pair fraction before and after removing the flagged records. This is a sensitivity check, not a revised primary result.
 - `sequence_redundancy_sensitivity.csv`: full-seed summaries compared with deterministic greedy representative sets at 95% and 90% identity. Pairwise identity uses shared valid A/C/G/U columns and requires at least 50% overlap of the shorter valid sequence. This is a sensitivity analysis, not phylogenetic correction.
 
 ### `family_contrast_summary.csv`
