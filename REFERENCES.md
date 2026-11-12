@@ -5,6 +5,9 @@ This list records the principal literature, databases, software, and structural 
 ## RNA sequence and structure conservation
 
 - Knies JL, Dang KK, Vision TJ, Hoffman NG, Swanstrom R, Burch CL. (2008). Compensatory evolution in RNA secondary structures increases substitution rate variation among sites. *Molecular Biology and Evolution*, 25(8), 1778–1787. https://doi.org/10.1093/molbev/msn130
+- Savill NJ, Hoyle DC, Higgs PG. (2001). RNA sequence evolution with secondary structure constraints: comparison of substitution rate models using maximum-likelihood methods. *Genetics*, 157(1), 399–411. https://doi.org/10.1093/genetics/157.1.399
+- Rivas E, Clements J, Eddy SR. (2020). Estimating the power of sequence covariation for detecting conserved RNA structure. *Bioinformatics*, 36(10), 3072–3076. https://doi.org/10.1093/bioinformatics/btaa080
+- Tourasse NJ, Darfeuille F. (2020). Structural alignment and covariation analysis of RNA sequences. *Bio-protocol*, 10(3), e3511. https://doi.org/10.21769/BioProtoc.3511
 - Rivas E. (2021). Evolutionary conservation of RNA sequence and structure. *WIREs RNA*. https://doi.org/10.1002/wrna.1649
 
 ## Databases, alignments, and annotation
@@ -22,12 +25,18 @@ This list records the principal literature, databases, software, and structural 
 
 - R-scape. [Version 2.6.21 release](https://github.com/EddyRivasLab/R-scape/releases/tag/v2.6.21).
 - Nawrocki EP, Eddy SR. (2013). Infernal 1.1: 100-fold faster RNA homology searches. *Bioinformatics*, 29(22), 2933–2935. https://doi.org/10.1093/bioinformatics/btt509
+- Nawrocki EP, Eddy SR. (2023). *Infernal 1.1.5 User's Guide*. EDDY Lab. https://eddylab.org/infernal/Userguide.pdf
+- Leontis NB, Westhof E. (2001). Geometric nomenclature and classification of RNA base pairs. *RNA*, 7(4), 499–512. https://doi.org/10.1017/S1355838201002515
 - Rivas E, Clements J, Eddy SR. (2017). A statistical test for conserved RNA structure shows lack of evidence for structure in lncRNAs. *Nature Methods*, 14, 45–48. https://doi.org/10.1038/nmeth.4066
 - Lorenz R, Bernhart SH, Höner zu Siederdissen C, et al. (2011). ViennaRNA Package 2.0. *Algorithms for Molecular Biology*, 6, 26. https://doi.org/10.1186/1748-7188-6-26
 - Hofacker IL, Fekete M, Stadler PF. (2002). Secondary structure prediction for aligned RNA sequences. *Journal of Molecular Biology*, 319(5), 1059–1066. https://doi.org/10.1016/S0022-2836(02)00308-X
 - Sarver M, Zirbel CL, Stombaugh J, Mokdad A, Leontis NB. (2008). FR3D: finding local and composite recurrent structural motifs in RNA 3D structures. *Journal of Mathematical Biology*, 56(1–2), 215–252. https://doi.org/10.1007/s00285-007-0110-x
 - Weinberg Z, Breaker RR. (2011). R2R—software to speed the depiction of aesthetic consensus RNA secondary structures. *BMC Bioinformatics*, 12, 3. https://doi.org/10.1186/1471-2105-12-3
 - Cock PJA, Antao T, Chang JT, et al. (2009). Biopython: freely available Python tools for computational molecular biology and bioinformatics. *Bioinformatics*, 25(11), 1422–1423. https://doi.org/10.1093/bioinformatics/btp163
+
+## Cell biology background
+
+- Alberts B, Johnson A, Lewis J, Raff M, Roberts K, Walter P. (2002). *Molecular Biology of the Cell*, 4th edition. New York: Garland Science. https://www.ncbi.nlm.nih.gov/books/NBK21054/
 
 ## Structural data
 
