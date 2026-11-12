@@ -6,7 +6,7 @@ ViennaRNA 2.7.2 was used as a complementary computational analysis of consensus 
 
 ## Method
 
-The Python ViennaRNA binding (2.7.2) was used for comparative MFE folding and partition-function/base-pair probabilities. Predictions were unconstrained: the Rfam `SS_cons` structure was not passed as a folding constraint and was used only for post hoc comparison. Each family was analysed at three redundancy levels: the full seed and deterministic greedy representative alignments at 95% and 90% pairwise identity. Representative selection uses `src.metrics.greedy_identity_representatives`, lexicographic sequence-ID ordering, and a 50% minimum overlap.
+The Python ViennaRNA binding (2.7.2) was used for comparative MFE folding and partition-function/base-pair probabilities (Bernhart et al., 2008; Lorenz et al., 2011). Predictions were unconstrained: the Rfam `SS_cons` structure was not passed as a folding constraint and was used only for post hoc comparison. Each family was analysed at three redundancy levels: the full seed and deterministic greedy representative alignments at 95% and 90% pairwise identity. Representative selection uses `src.metrics.greedy_identity_representatives`, lexicographic sequence-ID ordering, and a 50% minimum overlap.
 
 IUPAC ambiguity symbols other than A/C/G/U were converted to N only in the ViennaRNA input. Original Rfam Stockholm alignments were not modified. Individual-sequence MFE folds used for the structure conservation index (SCI) exclude sequences containing ambiguity symbols. The exact software version, subset sizes, model settings, and interpretation limits are recorded in [the ViennaRNA manifest](provenance/viennarna_manifest.json).
 

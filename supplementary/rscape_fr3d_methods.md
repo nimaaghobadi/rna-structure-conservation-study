@@ -6,7 +6,7 @@ This supplementary analysis links R-scape covariation results for the Rfam 15.1 
 
 ## R-scape inputs and coordinates
 
-R-scape v2.6.21 was run on the original Rfam seed Stockholm alignments with the two-set test (`-s`), random seed 20261030, and `--cacofold` as a secondary structure-exploration output. The exact command, source archive checksum, input checksums, and checksums of the primary and CaCoFold outputs are in [the R-scape run manifest](provenance/rscape_run_manifest.md). The raw primary and CaCoFold numeric outputs are retained under [supplementary/rscape/](rscape/).
+R-scape v2.6.21 was run on the original Rfam seed Stockholm alignments with the two-set test (`-s`), random seed 20261030, and `--cacofold` as a secondary structure-exploration output. The exact command, source archive checksum, input checksums, and checksums of the primary and CaCoFold outputs are in [the R-scape run manifest](provenance/rscape_run_manifest.md). The method tests covariation beyond a phylogenetic null expectation; estimated power is relevant when interpreting non-detections (Rivas et al., 2017, 2020). The raw primary and CaCoFold numeric outputs are retained under [supplementary/rscape/](rscape/).
 
 The R-scape left/right positions in the primary covariance output are 1-based positions in the original input Stockholm alignment. This was checked against the original `SS_cons` annotations: all significant pairs marked as belonging to the supplied structure match the corresponding pairs at the same Stockholm columns (22/22 for RF00001 and 21/21 for RF00005). The shorter effective/tested alignment length reported in the R-scape log is not a coordinate transform.
 
@@ -16,7 +16,7 @@ Stockholm columns map to Rfam covariance-model positions by counting non-inserti
 
 ## Rfam covariance-model mapping to 9ZTL
 
-The primary residue map uses the official Rfam 15.1 covariance models aligned to the deposited RNA chains with Infernal `cmalign` 1.1.5 in global model-alignment mode (`-g`). The updated 9ZTL mmCIF is retrieved from PDBe; the two Rfam covariance models are retrieved from the official Rfam family endpoints. Their URLs and SHA-256 checksums, the mmCIF checksum, chain identities, and mapping summary are recorded in [the mapping manifest](provenance/9ztl_cmalign_mapping_manifest.json).
+The primary residue map uses the official Rfam 15.1 covariance models aligned to the deposited RNA chains with Infernal `cmalign` 1.1.5 in global model-alignment mode (`-g`) (Nawrocki & Eddy, 2013; Nawrocki & Eddy, 2023). The updated 9ZTL mmCIF is retrieved from PDBe; the two Rfam covariance models are retrieved from the official Rfam family endpoints. Their URLs and SHA-256 checksums, the mmCIF checksum, chain identities, and mapping summary are recorded in [the mapping manifest](provenance/9ztl_cmalign_mapping_manifest.json).
 
 Distinct PDB/mmCIF identifiers are retained: label-asym chain, author chain, label sequence number, author residue number, insertion code, and component/base identity. The relevant author chains are `b` for 5S rRNA (label chain `EA`) and `5` for the P-site tRNA (label chain `F`). These identifiers are not interchangeable.
 
@@ -24,7 +24,7 @@ The complete per-model-position map is [rfam_to_pdb_9ztl_cmalign.csv](tables/rfa
 
 ## FR3D geometric annotations
 
-FR3D Python was pinned to commit `494a81ccb024abda18fb4c62115a77c6df608472`. It was used to annotate base-pair and stacking interactions in 9ZTL for author chains `b` and `5`. FR3D unit identifiers use author-chain and author-residue numbering; residue pairs were compared using the mapped author identifiers. Reverse-direction duplicates were treated as one unordered residue pair. Leontis–Westhof interaction codes are retained in the machine-readable table.
+FR3D Python was pinned to commit `494a81ccb024abda18fb4c62115a77c6df608472` and used to annotate base-pair and stacking interactions in 9ZTL for author chains `b` and `5` (Sarver et al., 2008). FR3D unit identifiers use author-chain and author-residue numbering; residue pairs were compared using the mapped author identifiers. Reverse-direction duplicates were treated as one unordered residue pair. Leontis–Westhof interaction codes are retained in the machine-readable table (Leontis & Westhof, 2001).
 
 The FR3D source outputs are retained in [supplementary/structural/](structural/), and the run metadata are in [the FR3D manifest](provenance/fr3d_9ztl_manifest.json). The 82-row [R-scape/FR3D evidence table](tables/rscape_fr3d_structural_evidence.csv) contains the original Stockholm coordinates, RF-model coordinates, R-scape statistics where applicable, 9ZTL chain/residue identifiers, mapping status, and FR3D base-pair/stacking observations.
 

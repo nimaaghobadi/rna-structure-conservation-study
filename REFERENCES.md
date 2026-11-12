@@ -28,6 +28,7 @@ This list records the principal literature, databases, software, and structural 
 - Nawrocki EP, Eddy SR. (2023). *Infernal 1.1.5 User's Guide*. EDDY Lab. https://eddylab.org/infernal/Userguide.pdf
 - Leontis NB, Westhof E. (2001). Geometric nomenclature and classification of RNA base pairs. *RNA*, 7(4), 499–512. https://doi.org/10.1017/S1355838201002515
 - Rivas E, Clements J, Eddy SR. (2017). A statistical test for conserved RNA structure shows lack of evidence for structure in lncRNAs. *Nature Methods*, 14, 45–48. https://doi.org/10.1038/nmeth.4066
+- Bernhart SH, Hofacker IL, Stadler PF. (2008). RNAalifold: improved consensus structure prediction for RNA alignments. *BMC Bioinformatics*, 9, 474. https://doi.org/10.1186/1471-2105-9-474
 - Lorenz R, Bernhart SH, Höner zu Siederdissen C, et al. (2011). ViennaRNA Package 2.0. *Algorithms for Molecular Biology*, 6, 26. https://doi.org/10.1186/1748-7188-6-26
 - Hofacker IL, Fekete M, Stadler PF. (2002). Secondary structure prediction for aligned RNA sequences. *Journal of Molecular Biology*, 319(5), 1059–1066. https://doi.org/10.1016/S0022-2836(02)00308-X
 - Sarver M, Zirbel CL, Stombaugh J, Mokdad A, Leontis NB. (2008). FR3D: finding local and composite recurrent structural motifs in RNA 3D structures. *Journal of Mathematical Biology*, 56(1–2), 215–252. https://doi.org/10.1007/s00285-007-0110-x
